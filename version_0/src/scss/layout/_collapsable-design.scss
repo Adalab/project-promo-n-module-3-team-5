@@ -1,0 +1,150 @@
+.wholecollapsable-design {
+  width: 100%;
+}
+
+.titledesignflex {
+  // background-color: yellowgreen;
+  //   display: flex;
+  //   flex-direction: row;
+  //   align-items: center;
+  //   justify-content: center;
+  //   display: flex;
+  //   margin-right: 60px;
+  //   margin-top: 27px;
+  // }
+
+  .cloningicon {
+    margin-left: 40px;
+    margin-right: 10px;
+    color: $textColor2;
+    font-size: 20px;
+    // transform: translateX(-23px);
+  }
+
+  // .titledesign {
+  //   color: $textColor1;
+  //   text-transform: uppercase;
+  //   font-family: $openSans;
+  //   font-weight: 600;
+  //   font-size: 18px;
+  // transform: translateX(-15px);
+}
+
+input[type="radio"] {
+  border: 0px;
+  width: 100%;
+  height: 17px;
+  width: 17px;
+  transform: translateY(6px);
+  margin-right: 10px;
+}
+// .Rectangle-2 {
+//   background-color: #54585a;
+//   width: 280px;
+//   height: 2px;
+//   margin: 30px 0 10px;
+// }
+
+.arrowdesign {
+  font-size: 18px;
+  color: $textColor1;
+  transform: translate(65px, -7px);
+  //   transform: translate(168px);
+}
+
+.flexboxdesign {
+  width: 100%;
+  // background-color: pink;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.titlecolours {
+  margin-top: 22px;
+  margin-left: 39px;
+  font-size: 14px;
+  color: #54585a;
+  text-transform: uppercase;
+  font-family: $openSans;
+}
+
+.li {
+  width: 30px;
+  height: 25px;
+  font-size: 0px;
+}
+
+// .colorboxesmaster {
+//   width: 90px;
+//   height: 75px;
+// }
+.colourboxes {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 0px;
+  line-height: 30px;
+}
+.colourone {
+  margin-top: 22px;
+  margin-right: 20px;
+}
+.colourtwo {
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.colourthree {
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+/*.design__input {
+  line-height: 30px;
+}*/
+.item1-item1 {
+  background-color: #114e4e;
+  color: #114e4e;
+  list-style-type: none;
+}
+.item1-item2 {
+  background-color: #438792;
+  color: #438792;
+}
+
+.item1-item3 {
+  background-color: #a2deaf;
+  color: #a2deaf;
+}
+
+.item2-item1 {
+  background-color: #420101;
+  color: #420101;
+}
+
+.item2-item2 {
+  background-color: #bd1010;
+  color: #bd1010;
+}
+
+.item2-item3 {
+  background-color: #e95626;
+  color: #e95626;
+}
+
+.item3-item1 {
+  background-color: #3e5b65;
+  color: #3e5b65;
+}
+
+.item3-item2 {
+  background-color: #eab052;
+  color: #eab052;
+}
+.item3-item3 {
+  background-color: #a0c0cf;
+  color: #a0c0cf;
+}
+.label__design {
+  display: block;
+}
