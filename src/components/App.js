@@ -15,12 +15,10 @@ function App() {
         <main className="wholeMain">
             <section className = "preview">
               <button className = "preview__button js_resetButton"><i className = "fas fa-trash-alt"></i>reset</button>
-          
               <article className = "preview__card">
                 <span className = "preview__pretty js_designColor"></span>
                 <h2 className = "preview__name js_previewName js_design">Nombre Apellidos</h2>
                 <h3 className = "preview__description js_previewDescription">Descripción</h3>
-
                 <div className = "preview__image js__profile-image" style="background-image: url(./assets/images/previewImg.jpg)">
                 </div>
 
@@ -45,33 +43,34 @@ function App() {
                 <i className = "fas fa-chevron-up collapsable__iconEnd js_iconEnd arrowReverse"></i>
                 </div>
 
-                <section className = "wholecollapsable-design js_section" id="desing">
-                  <!-- <div className = "titledesignflex">
-                  <i className = "far fa-object-ungroup cloningicon"></i>
-                  <h3 className = "titledesign">diseña</h3>
-                  <i className = "fas fa-chevron-up arrowdesign"></i>
-                  </div> -->
+                <section className = "wholecollapsable-design     js_section"         id="desing">
+                    {/*<!-- <div className = "titledesignflex">
+                    <i className = "far fa-object-ungroup cloningicon"></i>
+                    <h3 className = "titledesign">diseña</h3>
+                    <i className = "fas fa-chevron-up arrowdesign"></i>
+                    </div> -->*/}
                   <div className = "rectangle-2"></div>
-                <fieldset className = "flexboxdesign">
+                  <fieldset className = "flexboxdesign">
                     <h4 className = "titlecolours">colores</h4>
                     <div className = "colourboxesmaster js_designevent">
-                    <label className = "label__design" for="colour1">
-                      <input id="1" className = "design__input js_design" type ="radio" value="1" name="palette" checked />
-                      <ul className = "colourboxes colourone">
+                      <label className = "label__design" for="colour1">
+                        <input id="1" className = "design__input js_design" type ="radio" value="1" name="palette" checked />
+                        <ul className = "colourboxes colourone">
                         <li className = "item1-item1 li">Color A</li>
                         <li className = "item1-item2 li">Color B</li>
                         <li className = "item1-item3 li">Color C</li>
-                      </ul>
-                  </label>
+                        </ul>
+                      </label>
+                    </div>
 
                     <label className = "label__design" for="colour2">
-                      <input id="2" className = "design__input js_design" type ="radio" value="2" name="palette" />
+                     <input id="2" className = "design__input js_design" type ="radio" value="2" name="palette" />
                       <ul className = "colourboxes colourtwo">
                         <li className = "item2-item1 li">Color A</li>
                         <li className = "item2-item2 li">Color B</li>
                         <li className = "item2-item3 li">Color C</li>
                       </ul>
-                  </label>
+                    </label>
 
                     <label className = "label__design" for="colour3">
                       <input id="3" className = "design__input js_design" type ="radio" value="3" name="palette" />
@@ -81,8 +80,7 @@ function App() {
                         <li className = "item3-item3 li">Color C</li>
                       </ul>
                     </label>
-                  </div>
-                </fieldset>
+                  </fieldset>
                 </section>
               </div>
 
@@ -123,6 +121,7 @@ function App() {
               <input className = "fill__third--mail-inp js_allInputs" placeholder="Ej: sally-hill@gmail.com" id="email" type ="email"
               name="email" />
             </div>
+
             <div className = "fill__third--tel">
               <label for="telephone" className = "fill__third--tel-lab">Teléfono</label>
               <input className = "fill__third--tel-inp js_allInputs" placeholder="Ej: 555-55-55-55" id="phone" type ="tel"
@@ -133,40 +132,41 @@ function App() {
               <input className = "fill__third--linked-inp js_allInputs" placeholder="Ej: linkedin.com/in/sally.hill" id="linkedin"
               type ="text" name="linkedin" />
             </div>
-            <!-- se consideraría type text para un texto que empieza con arroba¿?-->
+            {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
             <div className = "fill__third--git">
               <label for="gitHubName" className = "fill__third--git-lab">Github *</label>
               <input className = "fill__third--git-inp js_allInputs" placeholder="Ej: @sally-hill" id="github" type ="text"
               name="github" />
-              <!--no hay input type =sumbit value= enviar info porque la información se va mostrando en el momento en la tarjeta y no se manda a ningún lugar-->
+              {/*<!--no hay input type =sumbit value= enviar info porque la información se va mostrando en el momento en la tarjeta y no se manda a ningún lugar-->*/}
             </div>
             </fieldset>
             </section>
             </div>
+
             <div>
-            <div className = "topBorder"> </div>
-            <div className = "collapsable js_collapsable">
-            <i className = "fas fa-share-alt collapsable__iconStart"></i>
-            <h3 className = "collapsable__title">Comparte</h3>
-            <i className = "fas fa-chevron-up collapsable__iconEnd js_iconEnd"></i>
+              <div className = "topBorder"></div>
+              <div className = "collapsable js_collapsable">
+              <i className = "fas fa-share-alt collapsable__iconStart"></i>
+              <h3 className = "collapsable__title">Comparte</h3>
+              <i className = "fas fa-chevron-up collapsable__iconEnd js_iconEnd"></i>
             </div>
 
             <section className = "js_section hidden" id="share">
-            <fieldset className = "share">
-            <div className = "share__second">
-            <button className = "share__buttom js_shareButton">
-            <i className = "far fa-address-card"></i> Crear tarjeta
-            </button>
-            </div>
-            <div className = "topBorder"> </div>
-            <div className = "share__collapsable hidden js_createdCard">
-              <h3 className = "share__collapsable__title js_notCreate hidden">La tarjeta ha sido creada</h3>
-              <p className = "card__http js_urlCard"></p>
-              <button className = "share__collapsable__button js_twiterBtn hidden"></button>
+              <fieldset className = "share">
+                <div className = "share__second">
+                  <button className = "share__buttom js_shareButton">
+                  <i className = "far fa-address-card"></i> Crear tarjeta
+                  </button>
+                </div>
+                  <div className = "topBorder"> </div>
+                  <div className = "share__collapsable hidden js_createdCard">
+                  <h3 className = "share__collapsable__title js_notCreate hidden">La tarjeta ha sido creada</h3>
+                  <p className = "card__http js_urlCard"></p>
+                  <button className = "share__collapsable__button js_twiterBtn hidden"></button>
+                </div>
               </fieldset>
-            </div>
             </section>
-            </div>
+            
             </form >
         </main >
         <footer className="footer__container">
