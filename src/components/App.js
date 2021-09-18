@@ -95,7 +95,7 @@ function App() {
                       id='1'
                       className='design__input js_design'
                       type='radio'
-                      value='1'
+                      /* value='1' */
                       name='palette'
                       defaultChecked
                     />
