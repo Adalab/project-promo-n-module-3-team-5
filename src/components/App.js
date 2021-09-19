@@ -1,5 +1,8 @@
 // Fichero src/components/App.js
 import "../styles/App.scss";
+// Migración imagenes
+import logoAwesone from '../images/logo-awesome-profile-cards.svg';
+import logoAdalab from '../images/logo-adalab.png';
 
 function App() {
   return (
@@ -7,7 +10,7 @@ function App() {
       <header className="header__cards--container">
         <img
           className="header__cards--img"
-          src="./assets/images/logo-awesome-profile-cards.svg"
+          src={logoAwesone}
           alt="logo-awesome-profile-cards"
         />
       </header>
@@ -290,7 +293,7 @@ function App() {
         </p>
         <img
           className="footer__logo"
-          src="./assets/images/logo-adalab.png"
+          src={logoAdalab}
           alt="logo de adalab"
         />
       </footer>
