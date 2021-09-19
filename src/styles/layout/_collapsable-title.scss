@@ -1,0 +1,24 @@
+.collapsable {
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: (50px 1fr 25px);
+  align-items: center;
+
+  &__iconStart {
+    color: $textColor2;
+    margin-left: 20px;
+  }
+  &__title {
+    text-transform: uppercase;
+    color: $textColor1;
+    font-family: $openSans;
+  }
+
+  &__iconEnd {
+    color: $textColor1;
+  }
+}
+
+.arrowReverse {
+  transform: rotateX(180deg);
+}

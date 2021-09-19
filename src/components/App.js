@@ -1,5 +1,5 @@
 // Fichero src/components/App.js
-import "../styles/App.scss";
+// import '../styles/App.scss';
 // Migración imagenes
 import logoAwesone from '../images/logo-awesome-profile-cards.svg';
 import logoAdalab from '../images/logo-adalab.png';

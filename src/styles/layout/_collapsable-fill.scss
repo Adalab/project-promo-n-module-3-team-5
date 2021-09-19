@@ -1,0 +1,161 @@
+.fill {
+  font-family: $openSans;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 27px 19px 30px 20px;
+  width: 100%;
+
+  &__first--name {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $textColor4;
+
+    &-lab {
+      line-height: 20px;
+      margin-bottom: 7px;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+    &-inp {
+      border: solid 1px $textColor5;
+      padding: 3px 190px 7px 9px;
+      color: $textColor11;
+    }
+  }
+  &__first--position {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $textColor4;
+    line-height: 20px;
+    &-lab {
+      line-height: 20px;
+      margin-bottom: 7px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    &-inp {
+      border: solid 1px $textColor5;
+      padding: 3px 135px 7px 9px;
+    }
+  }
+
+  &__second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -155px;
+
+    &-label {
+      line-height: 20px;
+      margin-bottom: 7px;
+      color: $textColor4;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+    &-buttoncheck {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-top: 10px;
+    }
+    &-button {
+      text-align: center;
+      background-color: $textColor2;
+      width: 140px;
+      height: 30px;
+      border: solid 1px $textColor2;
+      border-radius: 3px;
+      color: $textColor8;
+      margin-right: 20px;
+    }
+    &-checkbox {
+      border: solid 1px $textColor5;
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+  &__third--mail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $textColor4;
+    line-height: 20px;
+    &-lab {
+      line-height: 20px;
+      margin-bottom: 7px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    &-inp {
+      border: solid 1px $textColor5;
+      padding: 3px 120px 7px 9px;
+    }
+  }
+  &__third--tel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $textColor4;
+    line-height: 20px;
+    &-lab {
+      line-height: 20px;
+      margin-bottom: 7px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    &-inp {
+      border: solid 1px $textColor5;
+      padding: 3px 167px 7px 9px;
+    }
+  }
+  &__third--linked {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $textColor4;
+    line-height: 20px;
+    &-lab {
+      line-height: 20px;
+      margin-bottom: 7px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    &-inp {
+      border: solid 1px $textColor5;
+      padding: 3px 96px 7px 9px;
+    }
+  }
+  &__third--git {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $textColor4;
+    line-height: 20px;
+    &-lab {
+      line-height: 20px;
+      margin-bottom: 7px;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    &-inp {
+      border: solid 1px $textColor5;
+      padding: 3px 188px 7px 9px;
+    }
+  }
+}
+::placeholder {
+  color: $textColor11;
+}
+.topBorder {
+  border-top: 1px solid $textColor9;
+  margin: 50px 30px 10px 30px;
+}
+.hidden_button {
+  display: none;
+}
