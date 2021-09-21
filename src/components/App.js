@@ -34,13 +34,16 @@ function App() {
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === 'name') {
-      console.log(wichInput);
-      data.name = ev.currentTarget.value;
+      setData({
+        ...data,
+        name: ev.currentTarget.value,
+      });
     } else if (wichInput === 'job') {
-      data.job = ev.currentTarget.value;
+      setData({
+        ...data,
+        job: ev.currentTarget.value,
+      });
     }
-
-    setData(ev.currentTarget.value);
   };
   /*const handlePalette = (ev) => {
 
@@ -250,6 +253,7 @@ function App() {
                       id='name'
                       type='text'
                       name='name'
+                      value={data.name}
                       onChange={handleInput}
                     />
                   </div>
@@ -266,6 +270,7 @@ function App() {
                       id='job'
                       type='text'
                       name='job'
+                      value={data.job}
                       onChange={handleInput}
                     />
                   </div>
