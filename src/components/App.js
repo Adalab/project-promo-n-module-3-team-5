@@ -78,79 +78,79 @@ function App() {
   };
 
   return (
-    <div className="root">
-      <div className="page-wrapper">
-        <header className="header__cards--container">
+    <div className='root'>
+      <div className='page-wrapper'>
+        <header className='header__cards--container'>
           <img
-            className="header__cards--img"
+            className='header__cards--img'
             src={logoAwesone}
-            alt="logo-awesome-profile-cards"
+            alt='logo-awesome-profile-cards'
           />
         </header>
-        <main className="wholeMain">
-          <section className="preview">
-            <button className="preview__button js_resetButton">
-              <i className="fas fa-trash-alt"></i>reset
+        <main className='wholeMain'>
+          <section className='preview'>
+            <button className='preview__button js_resetButton'>
+              <i className='fas fa-trash-alt'></i>reset
             </button>
-            <article className="preview__card">
-              <span className="preview__pretty js_designColor"></span>
-              <h2 className="preview__name js_previewName js_design">
+            <article className='preview__card'>
+              <span className='preview__pretty js_designColor'></span>
+              <h2 className='preview__name js_previewName js_design'>
                 {data.name}
               </h2>
-              <h3 className="preview__description js_previewDescription">
+              <h3 className='preview__description js_previewDescription'>
                 {data.job}
               </h3>
               <div
                 style={{
                   backgroundImage: `url(${imagePreview})`,
                 }}
-                className="preview__image js__profile-image"
+                className='preview__image js__profile-image'
               ></div>
               {/* react espera que el style lo pasemos como un objeto */}
-              <nav className="preview__icons">
+              <nav className='preview__icons'>
                 <a
-                  className="preview__icons--measures js_designColor js_previewPhone"
+                  className='preview__icons--measures js_designColor js_previewPhone'
                   href={'+34' + data.phone}
-                  title="phone"
-                  name="phone"
+                  title='phone'
+                  name='phone'
                 >
-                  <i className="fas fa-mobile-alt"></i>
+                  <i className='fas fa-mobile-alt'></i>
                 </a>
                 <a
-                  className="preview__icons--measures js_designColor js_previewEmail"
-                  href="/home"
-                  target="_blank"
-                  title="message"
+                  className='preview__icons--measures js_designColor js_previewEmail'
+                  href='/home'
+                  target='_blank'
+                  title='message'
                 >
-                  <i className="far fa-envelope"></i>
+                  <i className='far fa-envelope'></i>
                 </a>
                 <a
-                  className="preview__icons--measures js_designColor js_previewLinkedin"
-                  href="/home"
-                  target="_blank"
-                  title="linkedin"
+                  className='preview__icons--measures js_designColor js_previewLinkedin'
+                  href='/home'
+                  target='_blank'
+                  title='linkedin'
                 >
-                  <i className="fab fa-linkedin-in"></i>
+                  <i className='fab fa-linkedin-in'></i>
                 </a>
                 <a
-                  className="preview__icons--measures js_designColor js_previewGithub"
-                  href="/home"
-                  target="_blank"
-                  title="github"
+                  className='preview__icons--measures js_designColor js_previewGithub'
+                  href='/home'
+                  target='_blank'
+                  title='github'
                 >
-                  <i className="fab fa-github-alt"></i>
+                  <i className='fab fa-github-alt'></i>
                 </a>
               </nav>
             </article>
           </section>
-          <form action="" method="POST" className="form js_form">
+          <form action='' method='POST' className='form js_form'>
             <div>
               <div
-                className="collapsable  js_collapsable_design"
+                className='collapsable  js_collapsable_design'
                 onClick={handleCollapsableDesign}
               >
-                <i className="far fa-object-ungroup cloningicon collapsable__iconStart"></i>
-                <h3 className="collapsable__title">Diseña</h3>
+                <i className='far fa-object-ungroup cloningicon collapsable__iconStart'></i>
+                <h3 className='collapsable__title'>Diseña</h3>
                 <i
                   className={
                     'fas fa-chevron-' +
@@ -160,62 +160,62 @@ function App() {
                 ></i>
               </div>
               <section
-                className="wholecollapsable-design     js_section"
-                id="desing"
+                className='wholecollapsable-design     js_section'
+                id='desing'
               >
                 {/*   <div className='titledesignflex'>
                   <i className='far fa-object-ungroup cloningicon'></i>
                   <h3 className='titledesign'>diseña</h3>
                   <i className='fas fa-chevron-up arrowdesign'></i>
                 </div> */}
-                <div className="rectangle-2"></div>
+                <div className='rectangle-2'></div>
                 <fieldset className={collapseDesign + ' flexboxdesign'}>
-                  <h4 className="titlecolours">colores</h4>
+                  <h4 className='titlecolours'>colores</h4>
                   <div>
-                    <div className="colourboxesmaster js_designevent">
-                      <label className="label__design" htmlFor="colour1">
+                    <div className='colourboxesmaster js_designevent'>
+                      <label className='label__design' htmlFor='colour1'>
                         <input
-                          id="1"
-                          className="design__input js_design"
-                          type="radio"
-                          value="1"
-                          name="palette"
+                          id='1'
+                          className='design__input js_design'
+                          type='radio'
+                          value='1'
+                          name='palette'
                           /*onChange={hanlePalette}
                           checked={palette}*/
                         />
-                        <ul className="colourboxes colourone">
-                          <li className="item1-item1 li">Color A</li>
-                          <li className="item1-item2 li">Color B</li>
-                          <li className="item1-item3 li">Color C</li>
+                        <ul className='colourboxes colourone'>
+                          <li className='item1-item1 li'>Color A</li>
+                          <li className='item1-item2 li'>Color B</li>
+                          <li className='item1-item3 li'>Color C</li>
                         </ul>
                       </label>
                     </div>
-                    <label className="label__design" htmlFor="colour2">
+                    <label className='label__design' htmlFor='colour2'>
                       <input
-                        id="2"
-                        className="design__input js_design"
-                        type="radio"
-                        value="2"
-                        name="palette"
+                        id='2'
+                        className='design__input js_design'
+                        type='radio'
+                        value='2'
+                        name='palette'
                       />
-                      <ul className="colourboxes colourtwo">
-                        <li className="item2-item1 li">Color A</li>
-                        <li className="item2-item2 li">Color B</li>
-                        <li className="item2-item3 li">Color C</li>
+                      <ul className='colourboxes colourtwo'>
+                        <li className='item2-item1 li'>Color A</li>
+                        <li className='item2-item2 li'>Color B</li>
+                        <li className='item2-item3 li'>Color C</li>
                       </ul>
                     </label>
-                    <label className="label__design" htmlFor="colour3">
+                    <label className='label__design' htmlFor='colour3'>
                       <input
-                        id="3"
-                        className="design__input js_design"
-                        type="radio"
-                        value="3"
-                        name="palette"
+                        id='3'
+                        className='design__input js_design'
+                        type='radio'
+                        value='3'
+                        name='palette'
                       />
-                      <ul className="colourboxes colourthree">
-                        <li className="item3-item2 li">Color B</li>
-                        <li className="item3-item1 li">Color A</li>
-                        <li className="item3-item3 li">Color C</li>
+                      <ul className='colourboxes colourthree'>
+                        <li className='item3-item2 li'>Color B</li>
+                        <li className='item3-item1 li'>Color A</li>
+                        <li className='item3-item3 li'>Color C</li>
                       </ul>
                     </label>
                   </div>
@@ -223,13 +223,13 @@ function App() {
               </section>
             </div>
             <div>
-              <div className="topBorder"></div>
+              <div className='topBorder'></div>
               <div
-                className="collapsable js_collapsable_fill "
+                className='collapsable js_collapsable_fill '
                 onClick={handleCollapsableFill}
               >
-                <i className="far fa-keyboard collapsable__iconStart"></i>
-                <h3 className="collapsable__title">Rellena</h3>
+                <i className='far fa-keyboard collapsable__iconStart'></i>
+                <h3 className='collapsable__title'>Rellena</h3>
                 <i
                   className={
                     'fas fa-chevron-' +
@@ -238,78 +238,69 @@ function App() {
                   }
                 ></i>
               </div>
-              <section className={collapseFill + ' fill'} id="fill">
-                <fieldset className="fill__first">
-                  <div className="fill__first--name">
-                    <label htmlFor="fullName" className="fill__first--name-lab">
+              <section className={collapseFill + ' fill'} id='fill'>
+                <fieldset className='fill__first'>
+                  <div className='fill__first--name'>
+                    <label htmlFor='fullName' className='fill__first--name-lab'>
                       Nombre completo *
                     </label>
                     <input
-<<<<<<< HEAD
-                      id='1'
-                      className='design__input js_design'
-                      type='radio'
-                      /* value='1' */
-                      name='palette'
-                      defaultChecked
-=======
-                      className="fill__first--name-inp js_allInputs"
-                      placeholder="Ej: Sally Jill"
-                      id="name"
-                      type="text"
-                      name="name"
+                      className='fill__first--name-inp js_allInputs'
+                      placeholder='Ej: Sally Jill'
+                      id='name'
+                      type='text'
+                      name='name'
                       onChange={handleInput}
->>>>>>> master
                     />
                   </div>
-                  <div className="fill__first--position">
+                  <div className='fill__first--position'>
                     <label
-                      htmlFor="position"
-                      className="fill__first--position-lab"
+                      htmlFor='position'
+                      className='fill__first--position-lab'
                     >
                       Puesto *
                     </label>
                     <input
-                      className="fill__first--position-inp js_allInputs"
-                      placeholder="Ej: Front-end unicorn"
-                      id="job"
-                      type="text"
-                      name="job"
+                      className='fill__first--position-inp js_allInputs'
+                      placeholder='Ej: Front-end unicorn'
+                      id='job'
+                      type='text'
+                      name='job'
                       onChange={handleInput}
                     />
                   </div>
                 </fieldset>
-                <fieldset className="fill__second">
-                  <label className="fill__second-label">
+                <fieldset className='fill__second'>
+                  <label className='fill__second-label'>
                     Imagen de perfil *
                   </label>
-                  <div className="fill__second-buttoncheck">
-                    <label className="fill__second-button" htmlFor="photo">
+                  <div className='fill__second-buttoncheck'>
+                    <label className='fill__second-button' htmlFor='photo'>
                       Añadir imagen
                     </label>
                     <input
-                      type="file"
-                      id="photo"
-                      className="hidden_button js__profile-upload-btn"
+                      type='file'
+                      id='photo'
+                      className='hidden_button js__profile-upload-btn'
                     />
-                    <div className="fill__second-checkbox js__profile-preview"></div>
+                    <div className='fill__second-checkbox js__profile-preview'></div>
                   </div>
                 </fieldset>
-                <fieldset className="fill__third">
-                  <div className="fill__third--mail">
-                    <label htmlFor="email" className="fill__third--mail-lab">
+                <fieldset className='fill__third'>
+                  <div className='fill__third--mail'>
+                    <label htmlFor='email' className='fill__third--mail-lab'>
                       Email *
                     </label>
                     <input
-                      className="fill__third--mail-inp js_allInputs"
-                      placeholder="Ej: sally-hill@gmail.com"
-                      id="email"
-                      type="email"
-                      name="email"
+                      className='fill__third--mail-inp js_allInputs'
+                      placeholder='Ej: sally-hill@gmail.com'
+                      id='email'
+                      type='email'
+                      name='email'
                     />
                   </div>
-                  <div className="fill__third--tel">
-                    <label htmlFor="telephone" className="fill__third--tel-lab">
+                  <div className='fill__third--tel'>
+                    <label htmlFor='telephone' className='fill__third--tel-lab'>
                       Teléfono
                     </label>
                     {/* <input
@@ -321,35 +312,35 @@ function App() {
                       onChange={handleInput}
                     /> */}
                   </div>
-                  <div className="fill__third--linked">
+                  <div className='fill__third--linked'>
                     <label
-                      htmlFor="linkedinName"
-                      className="fill__third--linked-lab"
+                      htmlFor='linkedinName'
+                      className='fill__third--linked-lab'
                     >
                       Linkedin *
                     </label>
                     <input
-                      className="fill__third--linked-inp js_allInputs"
-                      placeholder="Ej: linkedin.com/in/sally.hill"
-                      id="linkedin"
-                      type="text"
-                      name="linkedin"
+                      className='fill__third--linked-inp js_allInputs'
+                      placeholder='Ej: linkedin.com/in/sally.hill'
+                      id='linkedin'
+                      type='text'
+                      name='linkedin'
                     />
                   </div>
                   {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
-                  <div className="fill__third--git">
+                  <div className='fill__third--git'>
                     <label
-                      htmlFor="gitHubName"
-                      className="fill__third--git-lab"
+                      htmlFor='gitHubName'
+                      className='fill__third--git-lab'
                     >
                       Github *
                     </label>
                     <input
-                      className="fill__third--git-inp js_allInputs"
-                      placeholder="Ej: @sally-hill"
-                      id="github"
-                      type="text"
-                      name="github"
+                      className='fill__third--git-inp js_allInputs'
+                      placeholder='Ej: @sally-hill'
+                      id='github'
+                      type='text'
+                      name='github'
                     />
                     {/*<!--no hay input type =sumbit value= enviar info porque la información se va mostrando en el momento en la tarjeta y no se manda a ningún lugar-->*/}
                   </div>
@@ -357,13 +348,13 @@ function App() {
               </section>
             </div>
             <div>
-              <div className="topBorder"></div>
+              <div className='topBorder'></div>
               <div
-                className="collapsable js_collapsable"
+                className='collapsable js_collapsable'
                 onClick={handleCollapsableShare}
               >
-                <i className="fas fa-share-alt collapsable__iconStart"></i>
-                <h3 className="collapsable__title">Comparte</h3>
+                <i className='fas fa-share-alt collapsable__iconStart'></i>
+                <h3 className='collapsable__title'>Comparte</h3>
                 <i
                   className={
                     'fas fa-chevron-' +
@@ -373,28 +364,28 @@ function App() {
                 ></i>
               </div>
             </div>
-            <section className={collapseShare} id="share">
-              <fieldset className="share">
-                <div className="share__second">
-                  <button className="share__button js_shareButton">
-                    <i className="far fa-address-card"></i> Crear tarjeta
+            <section className={collapseShare} id='share'>
+              <fieldset className='share'>
+                <div className='share__second'>
+                  <button className='share__button js_shareButton'>
+                    <i className='far fa-address-card'></i> Crear tarjeta
                   </button>
                 </div>
-                <div className="share__topBorder"> </div>
-                <div className="share__collapsable js_createdCard">
-                  <h3 className="share__collapsable__title js_notCreate">
+                <div className='share__topBorder'> </div>
+                <div className='share__collapsable js_createdCard'>
+                  <h3 className='share__collapsable__title js_notCreate'>
                     La tarjeta ha sido creada
                   </h3>
-                  <p className="card__http js_urlCard">
+                  <p className='card__http js_urlCard'>
                     https://awesome-profile-card.com?id=A456DF0001
                   </p>
-                  <button className="share__collapsable__button js_twiterBtn">
+                  <button className='share__collapsable__button js_twiterBtn'>
                     <a
-                      class="share__collapsable__button--link"
-                      href=""
-                      target="_blank"
+                      class='share__collapsable__button--link'
+                      href=''
+                      target='_blank'
                     >
-                      <i class="icon3 fab fa-twitter"></i>&nbsp;Compartir en
+                      <i class='icon3 fab fa-twitter'></i>&nbsp;Compartir en
                       twitter
                     </a>
                   </button>
@@ -403,11 +394,11 @@ function App() {
             </section>
           </form>
         </main>
-        <footer className="footer__container">
-          <p className="footer__paragraph">
+        <footer className='footer__container'>
+          <p className='footer__paragraph'>
             <small>Awesome profile-cards &copy;2021</small>
           </p>
-          <img className="footer__logo" src={logoAdalab} alt="logo de adalab" />
+          <img className='footer__logo' src={logoAdalab} alt='logo de adalab' />
         </footer>
       </div>
     </div>
