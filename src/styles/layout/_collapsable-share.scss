@@ -16,11 +16,16 @@
   font-family: $openSans;
   // margin: 0px 20px 10px 20px;
 
+  &__topBorder{
+    margin: 0;
+    border-top: 1px solid $textColor9;
+  }
+
   &__second {
     display: flex;
     justify-content: center;
   }
-  &__buttom {
+  &__button {
     background-color: $textColor2;
     width: 199px;
     height: 50px;
@@ -30,14 +35,13 @@
     text-transform: uppercase;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.32);
     margin: 30px 0px 30px 0px;
+    border: none;
   }
   &__collapsable {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    border-bottom: 1px solid $textColor9;
     margin-bottom: 50px 30px 0px 30px;
 
     &__title {
@@ -47,12 +51,20 @@
     }
     &__button {
       background-color: #00a0f5;
-      color: #ffffff;
       width: 181px;
       height: 30px;
       border-radius: 3px;
       font-family: $openSans;
       font-size: 14px;
+      margin: 10px 70px;
+      border:none;
+      
+      &--link {
+        text-decoration: none;
+        color: #fff;
+        font-size      : 14px;
+        line-height    : 1.43;
+      }
     }
   }
 }

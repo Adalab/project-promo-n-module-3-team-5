@@ -3,6 +3,8 @@
   display: grid;
   grid-template-columns: (50px 1fr 25px);
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   &__iconStart {
     color: $textColor2;
