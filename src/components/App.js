@@ -365,11 +365,11 @@ function App() {
                   </button>
                 </div>
                 <div className='share__topBorder'> </div>
-                <div className="share__collapsable hidden js_createdCard">
-                  <h3 className="share__collapsable__title js_notCreate hidden">
+                <div className="share__collapsable js_createdCard">
+                  <h3 className="share__collapsable__title js_notCreate">
                     La tarjeta ha sido creada
                   </h3>
-                  <p className="card__http js_urlCard"></p>
+                  <p className="card__http js_urlCard">https://awesome-profile-card.com?id=A456DF0001</p>
                   <button className='share__collapsable__button js_twiterBtn'>
                       <a
                         class="share__collapsable__button--link"
