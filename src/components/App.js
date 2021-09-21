@@ -16,6 +16,35 @@ function App() {
   const [arrowPositionFill, setArrowPositionFill] = useState('down');
   const [arrowPositionShare, setArrowPositionShare] = useState('down');
 
+  //Input del formulario
+  const [data, setData] = useState({
+    palette: 1,
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+    photo: '',
+  });
+
+  const [palette, setPalette] = useState(1);
+
+  const handleInput = (ev) => {
+    const wichInput = ev.currentTarget.name;
+    if (wichInput === 'name') {
+      console.log(wichInput);
+      data.name = ev.currentTarget.value;
+    } else if (wichInput === 'job') {
+      data.job = ev.currentTarget.value;
+    }
+
+    setData(ev.currentTarget.value);
+  };
+  /*const handlePalette = (ev) => {
+
+  }*/
+
   const handleCollapsableDesign = (ev) => {
     if (collapseDesign === 'hidden') {
       setCollapseDesign('');
@@ -65,10 +94,10 @@ function App() {
           <article className="preview__card">
             <span className="preview__pretty js_designColor"></span>
             <h2 className="preview__name js_previewName js_design">
-              Nombre Apellidos
+              {data.name}
             </h2>
             <h3 className="preview__description js_previewDescription">
-              Descripción
+              {data.job}
             </h3>
             <div
               className="preview__image js__profile-image"
@@ -78,14 +107,14 @@ function App() {
             {/* react espera que el style lo pasemos como un objeto */}
 
             <nav className="preview__icons">
-              <a
+              {/*  <a
                 className="preview__icons--measures js_designColor js_previewPhone"
-                href="/home"
-                target="_blank"
+                href={'+34' + data.phone}
                 title="phone"
+                name="phone"
               >
                 <i className="fas fa-mobile-alt"></i>
-              </a>
+              </a> */}
               <a
                 className="preview__icons--measures js_designColor js_previewEmail"
                 href="/home"
@@ -152,7 +181,8 @@ function App() {
                         type="radio"
                         value="1"
                         name="palette"
-                        defaultChecked
+                        /*onChange={hanlePalette}
+                        checked={palette}*/
                       />
                       <ul className="colourboxes colourone">
                         <li className="item1-item1 li">Color A</li>
@@ -225,6 +255,7 @@ function App() {
                     id="name"
                     type="text"
                     name="name"
+                    onChange={handleInput}
                   />
                 </div>
                 <div className="fill__first--position">
@@ -240,6 +271,7 @@ function App() {
                     id="job"
                     type="text"
                     name="job"
+                    onChange={handleInput}
                   />
                 </div>
               </fieldset>
@@ -277,13 +309,14 @@ function App() {
                   <label htmlFor="telephone" className="fill__third--tel-lab">
                     Teléfono
                   </label>
-                  <input
+                  {/* <input
                     className="fill__third--tel-inp js_allInputs"
                     placeholder="Ej: 555-55-55-55"
                     id="phone"
                     type="tel"
                     name="phone"
-                  />
+                    onChange={handleInput}
+                  /> */}
                 </div>
                 <div className="fill__third--linked">
                   <label
