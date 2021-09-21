@@ -22,7 +22,7 @@ function App() {
       setArrowPositionDesign('up');
     } else {
       setCollapseDesign('hidden');
-      setArrowPositionDesign('up');
+      setArrowPositionDesign('down');
       console.log(collapseDesign);
     }
   };
@@ -126,7 +126,7 @@ function App() {
                 className={
                   'fas fa-chevron-' +
                   arrowPositionDesign +
-                  ' collapsable__iconEnd js_iconEnd arrowReverse'
+                  ' collapsable__iconEnd js_iconEnd'
                 }
               ></i>
             </div>
