@@ -350,11 +350,21 @@ function App() {
                 <h3 className='share__collapsable__title js_notCreate'>
                   La tarjeta ha sido creada
                 </h3>
-                <p className='card__http js_urlCard'></p>
-                <button className='share__collapsable__button js_twiterBtn'></button>
+                <p className='card__http js_urlCard'>https://awesome-profile-card.com?id=A456DF0001</p>
+                <button className='share__collapsable__button js_twiterBtn'> 
+                  <a 
+                    class="share__collapsable__button--link"
+                    href=""
+                    target="_blank"
+                  >
+                  <i class="icon3 fab fa-twitter"></i>&nbsp;Compartir en twitter
+                  </a>
+                </button>
               </div>
+
             </fieldset>
           </section>
+              <div className='topBorder'> </div>
         </form>
       </main>
 

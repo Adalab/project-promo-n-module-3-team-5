@@ -48,13 +48,20 @@
     }
     &__button {
       background-color: #00a0f5;
-      color: #ffffff;
       width: 181px;
       height: 30px;
       border-radius: 3px;
       font-family: $openSans;
       font-size: 14px;
       margin: 10px 70px 61px 70px;
+      border:none;
+      
+      &--link {
+        text-decoration: none;
+        color: #fff;
+        font-size      : 14px;
+        line-height    : 1.43;
+      }
     }
   }
 }
