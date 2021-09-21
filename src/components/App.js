@@ -100,20 +100,22 @@ function App() {
               <h3 className="preview__description js_previewDescription">
                 {data.job}
               </h3>
-              <div style={{
-                  backgroundImage: `url(${imagePreview})`
-                }} className='preview__image js__profile-image'
-                ></div>
+              <div
+                style={{
+                  backgroundImage: `url(${imagePreview})`,
+                }}
+                className="preview__image js__profile-image"
+              ></div>
               {/* react espera que el style lo pasemos como un objeto */}
               <nav className="preview__icons">
-                {/*  <a
+                <a
                   className="preview__icons--measures js_designColor js_previewPhone"
                   href={'+34' + data.phone}
                   title="phone"
                   name="phone"
                 >
                   <i className="fas fa-mobile-alt"></i>
-                </a> */}
+                </a>
                 <a
                   className="preview__icons--measures js_designColor js_previewEmail"
                   href="/home"
@@ -269,7 +271,9 @@ function App() {
                   </div>
                 </fieldset>
                 <fieldset className="fill__second">
-                  <label className="fill__second-label">Imagen de perfil *</label>
+                  <label className="fill__second-label">
+                    Imagen de perfil *
+                  </label>
                   <div className="fill__second-buttoncheck">
                     <label className="fill__second-button" htmlFor="photo">
                       Añadir imagen
@@ -325,7 +329,10 @@ function App() {
                   </div>
                   {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
                   <div className="fill__third--git">
-                    <label htmlFor="gitHubName" className="fill__third--git-lab">
+                    <label
+                      htmlFor="gitHubName"
+                      className="fill__third--git-lab"
+                    >
                       Github *
                     </label>
                     <input
@@ -364,21 +371,24 @@ function App() {
                     <i className="far fa-address-card"></i> Crear tarjeta
                   </button>
                 </div>
-                <div className='share__topBorder'> </div>
+                <div className="share__topBorder"> </div>
                 <div className="share__collapsable js_createdCard">
                   <h3 className="share__collapsable__title js_notCreate">
                     La tarjeta ha sido creada
                   </h3>
-                  <p className="card__http js_urlCard">https://awesome-profile-card.com?id=A456DF0001</p>
-                  <button className='share__collapsable__button js_twiterBtn'>
-                      <a
-                        class="share__collapsable__button--link"
-                        href=""
-                        target="_blank"
-                      >
-                      <i class="icon3 fab fa-twitter"></i>&nbsp;Compartir en twitter
-                      </a>
-                    </button>
+                  <p className="card__http js_urlCard">
+                    https://awesome-profile-card.com?id=A456DF0001
+                  </p>
+                  <button className="share__collapsable__button js_twiterBtn">
+                    <a
+                      class="share__collapsable__button--link"
+                      href=""
+                      target="_blank"
+                    >
+                      <i class="icon3 fab fa-twitter"></i>&nbsp;Compartir en
+                      twitter
+                    </a>
+                  </button>
                 </div>
               </fieldset>
             </section>
@@ -391,7 +401,6 @@ function App() {
           <img className="footer__logo" src={logoAdalab} alt="logo de adalab" />
         </footer>
       </div>
-
     </div>
   );
 }
