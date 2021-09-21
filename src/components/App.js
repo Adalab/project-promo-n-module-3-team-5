@@ -1,10 +1,52 @@
 // Fichero src/components/App.js
-//import '../styles/App.scss';
+import '../styles/App.scss';
 // Migración imagenes
 import logoAwesone from '../images/logo-awesome-profile-cards.svg';
 import logoAdalab from '../images/logo-adalab.png';
+//useState
+import { useState } from 'react';
 
 function App() {
+  //variables colapsables
+  const [collapseDesign, setCollapseDesign] = useState('');
+  const [collapseFill, setCollapseFill] = useState('hidden');
+  const [collapseShare, setCollapseShare] = useState('hidden');
+  //variabes Arrow
+  const [arrowPositionDesign, setArrowPositionDesign] = useState('up');
+  const [arrowPositionFill, setArrowPositionFill] = useState('down');
+  const [arrowPositionShare, setArrowPositionShare] = useState('down');
+
+  const handleCollapsableDesign = (ev) => {
+    if (collapseDesign === 'hidden') {
+      setCollapseDesign('');
+      setArrowPositionDesign('up');
+    } else {
+      setCollapseDesign('hidden');
+      setArrowPositionDesign('up');
+      console.log(collapseDesign);
+    }
+  };
+  const handleCollapsableFill = (ev) => {
+    if (collapseFill === '') {
+      setCollapseFill('hidden');
+      setArrowPositionFill('down');
+    } else {
+      setCollapseFill('');
+      setArrowPositionFill('up');
+      console.log(collapseDesign);
+    }
+  };
+  const handleCollapsableShare = (ev) => {
+    if (collapseShare === '') {
+      setCollapseShare('hidden');
+      setArrowPositionShare('down');
+    } else {
+      setCollapseShare('');
+      setArrowPositionShare('up');
+      console.log(collapseDesign);
+    }
+  };
+
   return (
     <div className="root">
       <header className="header__cards--container">
@@ -38,7 +80,7 @@ function App() {
             <nav className="preview__icons">
               <a
                 className="preview__icons--measures js_designColor js_previewPhone"
-                href="#"
+                href="/home"
                 target="_blank"
                 title="phone"
               >
@@ -46,7 +88,7 @@ function App() {
               </a>
               <a
                 className="preview__icons--measures js_designColor js_previewEmail"
-                href="#"
+                href="/home"
                 target="_blank"
                 title="message"
               >
@@ -54,7 +96,7 @@ function App() {
               </a>
               <a
                 className="preview__icons--measures js_designColor js_previewLinkedin"
-                href="#"
+                href="/home"
                 target="_blank"
                 title="linkedin"
               >
@@ -62,7 +104,7 @@ function App() {
               </a>
               <a
                 className="preview__icons--measures js_designColor js_previewGithub"
-                href="#"
+                href="/home"
                 target="_blank"
                 title="github"
               >
@@ -74,87 +116,104 @@ function App() {
 
         <form action="" method="POST" className="form js_form">
           <div>
-            <div className="collapsable js_collapsable">
+            <div
+              className="collapsable  js_collapsable_design"
+              onClick={handleCollapsableDesign}
+            >
               <i className="far fa-object-ungroup cloningicon collapsable__iconStart"></i>
               <h3 className="collapsable__title">Diseña</h3>
-              <i className="fas fa-chevron-up collapsable__iconEnd js_iconEnd arrowReverse"></i>
+              <i
+                className={
+                  'fas fa-chevron-' +
+                  arrowPositionDesign +
+                  ' collapsable__iconEnd js_iconEnd arrowReverse'
+                }
+              ></i>
             </div>
 
             <section
               className="wholecollapsable-design     js_section"
               id="desing"
             >
-              {/*<!-- <div className = "titledesignflex">
-                    <i className = "far fa-object-ungroup cloningicon"></i>
-                    <h3 className = "titledesign">diseña</h3>
-                    <i className = "fas fa-chevron-up arrowdesign"></i>
-                    </div> -->*/}
+              {/*   <div className='titledesignflex'>
+                <i className='far fa-object-ungroup cloningicon'></i>
+                <h3 className='titledesign'>diseña</h3>
+                <i className='fas fa-chevron-up arrowdesign'></i>
+              </div> */}
               <div className="rectangle-2"></div>
-              <fieldset className="flexboxdesign">
+              <fieldset className={collapseDesign + ' flexboxdesign'}>
                 <h4 className="titlecolours">colores</h4>
-                <div className="colourboxesmaster js_designevent">
-                  <label className="label__design" htmlFor="colour1">
+                <div>
+                  <div className="colourboxesmaster js_designevent">
+                    <label className="label__design" htmlFor="colour1">
+                      <input
+                        id="1"
+                        className="design__input js_design"
+                        type="radio"
+                        value="1"
+                        name="palette"
+                        defaultChecked
+                      />
+                      <ul className="colourboxes colourone">
+                        <li className="item1-item1 li">Color A</li>
+                        <li className="item1-item2 li">Color B</li>
+                        <li className="item1-item3 li">Color C</li>
+                      </ul>
+                    </label>
+                  </div>
+
+                  <label className="label__design" htmlFor="colour2">
                     <input
-                      id="1"
+                      id="2"
                       className="design__input js_design"
                       type="radio"
-                      value="1"
+                      value="2"
                       name="palette"
-                      defaultChecked
                     />
-                    <ul className="colourboxes colourone">
-                      <li className="item1-item1 li">Color A</li>
-                      <li className="item1-item2 li">Color B</li>
-                      <li className="item1-item3 li">Color C</li>
+                    <ul className="colourboxes colourtwo">
+                      <li className="item2-item1 li">Color A</li>
+                      <li className="item2-item2 li">Color B</li>
+                      <li className="item2-item3 li">Color C</li>
+                    </ul>
+                  </label>
+
+                  <label className="label__design" htmlFor="colour3">
+                    <input
+                      id="3"
+                      className="design__input js_design"
+                      type="radio"
+                      value="3"
+                      name="palette"
+                    />
+                    <ul className="colourboxes colourthree">
+                      <li className="item3-item2 li">Color B</li>
+                      <li className="item3-item1 li">Color A</li>
+                      <li className="item3-item3 li">Color C</li>
                     </ul>
                   </label>
                 </div>
-
-                <label className="label__design" htmlFor="colour2">
-                  <input
-                    id="2"
-                    className="design__input js_design"
-                    type="radio"
-                    value="2"
-                    name="palette"
-                  />
-                  <ul className="colourboxes colourtwo">
-                    <li className="item2-item1 li">Color A</li>
-                    <li className="item2-item2 li">Color B</li>
-                    <li className="item2-item3 li">Color C</li>
-                  </ul>
-                </label>
-
-                <label className="label__design" htmlFor="colour3">
-                  <input
-                    id="3"
-                    className="design__input js_design"
-                    type="radio"
-                    value="3"
-                    name="palette"
-                  />
-                  <ul className="colourboxes colourthree">
-                    <li className="item3-item2 li">Color B</li>
-                    <li className="item3-item1 li">Color A</li>
-                    <li className="item3-item3 li">Color C</li>
-                  </ul>
-                </label>
               </fieldset>
             </section>
           </div>
 
           <div>
             <div className="topBorder"></div>
-            <div className="collapsable js_collapsable">
+            <div
+              className="collapsable js_collapsable_fill "
+              onClick={handleCollapsableFill}
+            >
               <i className="far fa-keyboard collapsable__iconStart"></i>
               <h3 className="collapsable__title">Rellena</h3>
-              <i className="fas fa-chevron-up collapsable__iconEnd js_iconEnd"></i>
+              <i
+                className={
+                  'fas fa-chevron-' +
+                  arrowPositionFill +
+                  ' collapsable__iconEnd js_iconEnd'
+                }
+              ></i>
             </div>
 
-            <section
-              className="fill js_section js_fillSectionName hidden"
-              id="fill"
-            >
+            <section className={collapseFill + ' fill'} id="fill">
               <fieldset className="fill__first">
                 <div className="fill__first--name">
                   <label htmlFor="fullName" className="fill__first--name-lab">
@@ -261,17 +320,26 @@ function App() {
 
           <div>
             <div className="topBorder"></div>
-            <div className="collapsable js_collapsable">
+            <div
+              className="collapsable js_collapsable"
+              onClick={handleCollapsableShare}
+            >
               <i className="fas fa-share-alt collapsable__iconStart"></i>
               <h3 className="collapsable__title">Comparte</h3>
-              <i className="fas fa-chevron-up collapsable__iconEnd js_iconEnd"></i>
+              <i
+                className={
+                  'fas fa-chevron-' +
+                  arrowPositionShare +
+                  ' collapsable__iconEnd js_iconEnd'
+                }
+              ></i>
             </div>
           </div>
 
-          <section className="js_section hidden" id="share">
+          <section className={collapseShare} id="share">
             <fieldset className="share">
               <div className="share__second">
-                <button className="share__buttom js_shareButton">
+                <button className="share__button js_shareButton">
                   <i className="far fa-address-card"></i> Crear tarjeta
                 </button>
               </div>
