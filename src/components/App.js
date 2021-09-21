@@ -3,6 +3,7 @@ import '../styles/App.scss';
 // Migración imagenes
 import logoAwesone from '../images/logo-awesome-profile-cards.svg';
 import logoAdalab from '../images/logo-adalab.png';
+import imagePreview from '../images/previewImg.jpg';
 //useState
 import { useState } from 'react';
 
@@ -70,9 +71,10 @@ function App() {
             <h3 className='preview__description js_previewDescription'>
               Descripción
             </h3>
-            <div
-              className='preview__image js__profile-image'
-              /* style='background-image: url(./assets/images/previewImg.jpg)' */
+            
+            <div style={{
+              backgroundImage: `url(${imagePreview})`
+            }} className='preview__image js__profile-image'
             ></div>
 
             {/* react espera que el style lo pasemos como un objeto */}
@@ -344,17 +346,18 @@ function App() {
                 </button>
               </div>
               <div className='topBorder'> </div>
-              <div className='share__collapsable hidden js_createdCard'>
-                <h3 className='share__collapsable__title js_notCreate hidden'>
+              <div className='share__collapsable'>
+                <h3 className='share__collapsable__title js_notCreate'>
                   La tarjeta ha sido creada
                 </h3>
                 <p className='card__http js_urlCard'></p>
-                <button className='share__collapsable__button js_twiterBtn hidden'></button>
+                <button className='share__collapsable__button js_twiterBtn'></button>
               </div>
             </fieldset>
           </section>
         </form>
       </main>
+
       <footer className='footer__container'>
         <p className='footer__paragraph'>
           <small>Awesome profile-cards &copy;2021</small>
