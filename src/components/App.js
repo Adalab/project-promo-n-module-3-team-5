@@ -143,53 +143,55 @@ function App() {
               <div className='rectangle-2'></div>
               <fieldset className={collapseDesign + ' flexboxdesign'}>
                 <h4 className='titlecolours'>colores</h4>
-                <div className='colourboxesmaster js_designevent'>
-                  <label className='label__design' htmlFor='colour1'>
+                <div>
+                  <div className='colourboxesmaster js_designevent'>
+                    <label className='label__design' htmlFor='colour1'>
+                      <input
+                        id='1'
+                        className='design__input js_design'
+                        type='radio'
+                        value='1'
+                        name='palette'
+                        defaultChecked
+                      />
+                      <ul className='colourboxes colourone'>
+                        <li className='item1-item1 li'>Color A</li>
+                        <li className='item1-item2 li'>Color B</li>
+                        <li className='item1-item3 li'>Color C</li>
+                      </ul>
+                    </label>
+                  </div>
+
+                  <label className='label__design' htmlFor='colour2'>
                     <input
-                      id='1'
+                      id='2'
                       className='design__input js_design'
                       type='radio'
-                      value='1'
+                      value='2'
                       name='palette'
-                      defaultChecked
                     />
-                    <ul className='colourboxes colourone'>
-                      <li className='item1-item1 li'>Color A</li>
-                      <li className='item1-item2 li'>Color B</li>
-                      <li className='item1-item3 li'>Color C</li>
+                    <ul className='colourboxes colourtwo'>
+                      <li className='item2-item1 li'>Color A</li>
+                      <li className='item2-item2 li'>Color B</li>
+                      <li className='item2-item3 li'>Color C</li>
+                    </ul>
+                  </label>
+
+                  <label className='label__design' htmlFor='colour3'>
+                    <input
+                      id='3'
+                      className='design__input js_design'
+                      type='radio'
+                      value='3'
+                      name='palette'
+                    />
+                    <ul className='colourboxes colourthree'>
+                      <li className='item3-item2 li'>Color B</li>
+                      <li className='item3-item1 li'>Color A</li>
+                      <li className='item3-item3 li'>Color C</li>
                     </ul>
                   </label>
                 </div>
-
-                <label className='label__design' htmlFor='colour2'>
-                  <input
-                    id='2'
-                    className='design__input js_design'
-                    type='radio'
-                    value='2'
-                    name='palette'
-                  />
-                  <ul className='colourboxes colourtwo'>
-                    <li className='item2-item1 li'>Color A</li>
-                    <li className='item2-item2 li'>Color B</li>
-                    <li className='item2-item3 li'>Color C</li>
-                  </ul>
-                </label>
-
-                <label className='label__design' htmlFor='colour3'>
-                  <input
-                    id='3'
-                    className='design__input js_design'
-                    type='radio'
-                    value='3'
-                    name='palette'
-                  />
-                  <ul className='colourboxes colourthree'>
-                    <li className='item3-item2 li'>Color B</li>
-                    <li className='item3-item1 li'>Color A</li>
-                    <li className='item3-item3 li'>Color C</li>
-                  </ul>
-                </label>
               </fieldset>
             </section>
           </div>
