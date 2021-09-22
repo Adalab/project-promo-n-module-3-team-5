@@ -13,9 +13,6 @@ function App() {
   const [collapseFill, setCollapseFill] = useState("hidden");
   const [collapseShare, setCollapseShare] = useState("hidden");
   //variabes Arrow
-  const [arrowPositionDesign, setArrowPositionDesign] = useState("up");
-  const [arrowPositionFill, setArrowPositionFill] = useState("down");
-  const [arrowPositionShare, setArrowPositionShare] = useState("down");
 
   //Input del formulario
   const [data, setData] = useState({
@@ -49,36 +46,30 @@ function App() {
   const handleCollapsableDesign = (ev) => {
     if (collapseDesign === "hidden") {
       setCollapseDesign("");
-      setArrowPositionDesign("up");
       setCollapseFill("hidden");
       setCollapseShare("hidden");
     } else {
       setCollapseDesign("hidden");
-      setArrowPositionDesign("down");
-      setArrowPositionFill("down");
       console.log(collapseDesign);
     }
   };
   const handleCollapsableFill = (ev) => {
     if (collapseFill === "hidden") {
       setCollapseFill("");
-      setArrowPositionFill("down");
       setCollapseDesign("hidden");
       setCollapseShare("hidden");
     } else {
       setCollapseFill("hidden");
-      setArrowPositionFill("up");
-      setArrowPositionDesign("up");
       console.log(collapseDesign);
     }
   };
   const handleCollapsableShare = (ev) => {
-    if (collapseShare === "") {
-      setCollapseShare("hidden");
-      setArrowPositionShare("down");
-    } else {
+    if (collapseShare === "hidden") {
       setCollapseShare("");
-      setArrowPositionShare("up");
+      setCollapseDesign("hidden");
+      setCollapseFill("hidden");
+    } else {
+      setCollapseShare("hidden");
       console.log(collapseDesign);
     }
   };
@@ -160,7 +151,7 @@ function App() {
                 <i
                   className={
                     "fas fa-chevron-" +
-                    arrowPositionDesign +
+                    (collapseDesign === "hidden" ? "down" : "up") +
                     " collapsable__iconEnd js_iconEnd"
                   }
                 ></i>
@@ -239,7 +230,7 @@ function App() {
                 <i
                   className={
                     "fas fa-chevron-" +
-                    arrowPositionFill +
+                    (collapseFill === "hidden" ? "down" : "up") +
                     " collapsable__iconEnd js_iconEnd"
                   }
                 ></i>
@@ -366,7 +357,7 @@ function App() {
                 <i
                   className={
                     "fas fa-chevron-" +
-                    arrowPositionShare +
+                    (collapseShare === "hidden" ? "down" : "up") +
                     " collapsable__iconEnd js_iconEnd"
                   }
                 ></i>
@@ -389,11 +380,11 @@ function App() {
                   </p>
                   <button className="share__collapsable__button js_twiterBtn">
                     <a
-                      class="share__collapsable__button--link"
+                      className="share__collapsable__button--link"
                       href=""
                       target="_blank"
                     >
-                      <i class="icon3 fab fa-twitter"></i>&nbsp;Compartir en
+                      <i className="icon3 fab fa-twitter"></i>&nbsp;Compartir en
                       twitter
                     </a>
                   </button>
