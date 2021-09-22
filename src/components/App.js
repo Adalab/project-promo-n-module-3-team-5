@@ -47,40 +47,25 @@ function App() {
   }*/
 
   const handleCollapsableDesign = (ev) => {
-    if (collapseDesign === 'hidden') {
-      setCollapseDesign('');
-      setArrowPositionDesign('up');
-      setCollapseFill('hidden');
-      setCollapseShare('hidden');
-    } else {
-      setCollapseDesign('hidden');
-      setArrowPositionDesign('down');
-      setArrowPositionFill('down');
-      console.log(collapseDesign);
-    }
+    setCollapseDesign('');
+    setCollapseFill('hidden');
+    setCollapseShare('hidden');
+    setArrowPositionDesign('down');
+    /* setArrowPositionFill('down'); */
   };
   const handleCollapsableFill = (ev) => {
-    if (collapseFill === 'hidden') {
-      setCollapseFill('');
-      setArrowPositionFill('down');
-      setCollapseDesign('hidden');
-      setCollapseShare('hidden');
-    } else {
-      setCollapseFill('hidden');
-      setArrowPositionFill('up');
-      setArrowPositionDesign('up');
-      console.log(collapseDesign);
-    }
+    setCollapseFill('');
+    setCollapseDesign('hidden');
+    setCollapseShare('hidden');
+    /* setArrowPositionFill('down'); */
   };
   const handleCollapsableShare = (ev) => {
-    if (collapseShare === '') {
-      setCollapseShare('hidden');
-      setArrowPositionShare('down');
-    } else {
-      setCollapseShare('');
-      setArrowPositionShare('up');
-      console.log(collapseDesign);
-    }
+    setCollapseShare('hidden');
+    setArrowPositionShare('down');
+    setCollapseShare('');
+    setArrowPositionShare('up');
+    setCollapseFill('hidden');
+    setCollapseDesign('hidden');
   };
 
   return (
