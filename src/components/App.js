@@ -34,13 +34,13 @@ function App() {
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === 'name') {
-      console.log(wichInput);
-      data.name = ev.currentTarget.value;
+      setData({
+        ...data,
+        name: ev.currentTarget.value,
+      });
     } else if (wichInput === 'job') {
-      data.job = ev.currentTarget.value;
+      setData({ ...data, job: ev.currentTarget.value });
     }
-
-    setData(ev.currentTarget.value);
   };
   /*const handlePalette = (ev) => {
 
@@ -251,6 +251,7 @@ function App() {
                       Nombre completo *
                     </label>
                     <input
+                      value={data.name}
                       className='fill__first--name-inp js_allInputs'
                       placeholder='Ej: Sally Jill'
                       id='name'
@@ -267,6 +268,7 @@ function App() {
                       Puesto *
                     </label>
                     <input
+                      value={data.job}
                       className='fill__first--position-inp js_allInputs'
                       placeholder='Ej: Front-end unicorn'
                       id='job'
