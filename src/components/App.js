@@ -34,16 +34,13 @@ function App() {
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === 'name') {
-      setData({
-        ...data,
-        name: ev.currentTarget.value,
-      });
+      console.log(wichInput);
+      data.name = ev.currentTarget.value;
     } else if (wichInput === 'job') {
-      setData({
-        ...data,
-        job: ev.currentTarget.value,
-      });
+      data.job = ev.currentTarget.value;
     }
+
+    setData(ev.currentTarget.value);
   };
   /*const handlePalette = (ev) => {
 
@@ -53,19 +50,25 @@ function App() {
     if (collapseDesign === 'hidden') {
       setCollapseDesign('');
       setArrowPositionDesign('up');
+      setCollapseFill('hidden');
+      setCollapseShare('hidden');
     } else {
       setCollapseDesign('hidden');
       setArrowPositionDesign('down');
+      setArrowPositionFill('down');
       console.log(collapseDesign);
     }
   };
   const handleCollapsableFill = (ev) => {
-    if (collapseFill === '') {
-      setCollapseFill('hidden');
-      setArrowPositionFill('down');
-    } else {
+    if (collapseFill === 'hidden') {
       setCollapseFill('');
+      setArrowPositionFill('down');
+      setCollapseDesign('hidden');
+      setCollapseShare('hidden');
+    } else {
+      setCollapseFill('hidden');
       setArrowPositionFill('up');
+      setArrowPositionDesign('up');
       console.log(collapseDesign);
     }
   };
@@ -253,7 +256,6 @@ function App() {
                       id='name'
                       type='text'
                       name='name'
-                      value={data.name}
                       onChange={handleInput}
                     />
                   </div>
@@ -270,7 +272,6 @@ function App() {
                       id='job'
                       type='text'
                       name='job'
-                      value={data.job}
                       onChange={handleInput}
                     />
                   </div>
