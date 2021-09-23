@@ -29,6 +29,7 @@ function App() {
   const [palette, setPalette] = useState(1);
 
   // Funcion manejadora del formulario
+  
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === "name") {
@@ -40,8 +41,12 @@ function App() {
       setData({ ...data, job: ev.currentTarget.value });
     } else if (wichInput === "phone") {
       setData({ ...data, phone: ev.currentTarget.value });
+    } else if (wichInput === "email") {
+      setData({ ...data, email: ev.currentTarget.value });
     } else if (wichInput === "linkedin") {
       setData({ ...data, linkedin: ev.currentTarget.value });
+    } else if (wichInput === "github") {
+      setData({ ...data, github: ev.currentTarget.value });
     } 
   };
 
@@ -90,6 +95,8 @@ function App() {
     }
   };
 
+  const handleForm = () => {}
+
   return (
     <div className="root">
       <div className="page-wrapper">
@@ -119,7 +126,6 @@ function App() {
                 }}
                 className="preview__image js__profile-image"
               ></div>
-              {/* react espera que el style lo pasemos como un objeto */}
               <nav className="preview__icons">
                 <a
                   className="preview__icons--measures js_designColor js_previewPhone"
@@ -130,9 +136,8 @@ function App() {
                   <i className="fas fa-mobile-alt"></i>
                 </a>
                 <a
-                  className="preview__icons--measures js_designColor js_previewEmail"
-                  href="/home"
-                  target="_blank"
+                  className="preview__icons--measures"
+                  href={`mailto:${data.email}`}
                   title="message"
                 >
                   <i className="far fa-envelope"></i>
@@ -147,7 +152,7 @@ function App() {
                 </a>
                 <a
                   className="preview__icons--measures js_designColor js_previewGithub"
-                  href="/home"
+                  href={`https://github.com/${data.github}`}
                   target="_blank"
                   title="github"
                 >
@@ -156,7 +161,8 @@ function App() {
               </nav>
             </article>
           </section>
-          <form action="" method="POST" className="form js_form">
+
+          <form onSubmit={handleForm} className="form">
             <div>
               <div
                 className="collapsable  js_collapsable_design"
@@ -307,25 +313,28 @@ function App() {
                       Email *
                     </label>
                     <input
-                      className="fill__third--mail-inp js_allInputs"
+                      className="fill__third--mail-inp"
                       placeholder="Ej: sally-hill@gmail.com"
                       id="email"
                       type="email"
                       name="email"
+                      value={data.email}
+                      onChange={handleInput}
                     />
                   </div>
                   <div className="fill__third--tel">
                     <label htmlFor="telephone" className="fill__third--tel-lab">
                       Teléfono
                     </label>
-                    {/* <input
+                    <input
                       className="fill__third--tel-inp js_allInputs"
                       placeholder="Ej: 555-55-55-55"
                       id="phone"
                       type="tel"
                       name="phone"
+                      value={data.phone}
                       onChange={handleInput}
-                    /> */}
+                    /> 
                   </div>
                   <div className="fill__third--linked">
                     <label
@@ -340,6 +349,8 @@ function App() {
                       id="linkedin"
                       type="text"
                       name="linkedin"
+                      value={data.linkedin}
+                      onChange={handleInput}
                     />
                   </div>
                   {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
@@ -356,6 +367,8 @@ function App() {
                       id="github"
                       type="text"
                       name="github"
+                      value={data.github}
+                      onChange={handleInput}
                     />
                     {/*<!--no hay input type =sumbit value= enviar info porque la información se va mostrando en el momento en la tarjeta y no se manda a ningún lugar-->*/}
                   </div>
