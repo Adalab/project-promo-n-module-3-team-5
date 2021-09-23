@@ -8,13 +8,12 @@ import imagePreview from "../images/previewImg.jpg";
 import { useState } from "react";
 
 function App() {
-  //variables colapsables
+  // Variables colapsables
   const [collapseDesign, setCollapseDesign] = useState("");
   const [collapseFill, setCollapseFill] = useState("hidden");
   const [collapseShare, setCollapseShare] = useState("hidden");
-  //variabes Arrow
 
-  //Input del formulario
+  // Variable del Input del formulario (array de datos)
   const [data, setData] = useState({
     palette: 1,
     name: "",
@@ -26,8 +25,10 @@ function App() {
     photo: "",
   });
 
+  // Variable de paletas
   const [palette, setPalette] = useState(1);
 
+  // Funcion manejadora del formulario
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === "name") {
@@ -37,12 +38,27 @@ function App() {
       });
     } else if (wichInput === "job") {
       setData({ ...data, job: ev.currentTarget.value });
-    }
+    } else if (wichInput === "phone") {
+      setData({ ...data, phone: ev.currentTarget.value });
+    } else if (wichInput === "linkedin") {
+      setData({ ...data, linkedin: ev.currentTarget.value });
+    } 
   };
-  /*const handlePalette = (ev) => {
 
-  }*/
+  // Mostrar Nombre y Trabajo en la tarjeta predefinida
+  let nameToDisplay = showToDisplay(data.name,'Nombre Apellidos');
+  let jobToDisplay = showToDisplay(data.job,'Front-end Developer');
 
+  function showToDisplay (dataSome, result) {
+    if ( dataSome === '') {
+      return result
+    } else {
+      return dataSome
+    }
+  }
+
+
+  // Escuchadores de apertura y cierre de secciones 
   const handleCollapsableDesign = (ev) => {
     if (collapseDesign === "hidden") {
       setCollapseDesign("");
@@ -92,10 +108,10 @@ function App() {
             <article className="preview__card">
               <span className="preview__pretty js_designColor"></span>
               <h2 className="preview__name js_previewName js_design">
-                {data.name}
+                {nameToDisplay}
               </h2>
               <h3 className="preview__description js_previewDescription">
-                {data.job}
+                {jobToDisplay}
               </h3>
               <div
                 style={{
@@ -123,7 +139,7 @@ function App() {
                 </a>
                 <a
                   className="preview__icons--measures js_designColor js_previewLinkedin"
-                  href="/home"
+                  href={`https://linkedin.com/in/${data.linkedin}`}
                   target="_blank"
                   title="linkedin"
                 >
