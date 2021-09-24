@@ -62,7 +62,6 @@ function App() {
     }
   }
 
-
   // Escuchadores de apertura y cierre de secciones 
   const handleCollapsableDesign = (ev) => {
     if (collapseDesign === "hidden") {
