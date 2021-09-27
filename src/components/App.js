@@ -25,11 +25,34 @@ function App() {
     photo: "",
   });
 
-  // Variable de paletas
-  const [palette, setPalette] = useState(1);
-
   // Funcion manejadora del formulario
-  
+
+  // Busca el id de la paleta, ya que al ser un radio, 
+  // los names deben ser iguales, por esto debemos utilizar id y 
+  // no de puede utilizar en handleInput (que llama names)
+  const handlePalette = (ev) => {
+    const whichRadio = ev.target.id;
+    if (whichRadio === 'palette-1') { 
+      setData({
+        ...data, 
+        palette: parseInt(ev.target.value)
+      })
+    } else if (whichRadio === 'palette-2') {
+      setData({
+        ...data, 
+        palette: parseInt(ev.target.value)
+      })
+    } else if (whichRadio === 'palette-3') {
+      setData({
+        ...data, 
+        palette: parseInt(ev.target.value)
+      })
+    }
+  }
+
+
+  // Busca en el formulario el target de name, para ponerlo en el 
+  // array Data
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === "name") {
@@ -112,7 +135,8 @@ function App() {
               <i className="fas fa-trash-alt"></i>reset
             </button>
             <article className="preview__card">
-              <span className="preview__pretty js_designColor"></span>
+              {/* ! empiezan estilos de la card */}
+              <span className="preview__pretty  js_designColor"></span> 
               <h2 className="preview__name js_previewName js_design">
                 {nameToDisplay}
               </h2>
@@ -127,7 +151,7 @@ function App() {
               ></div>
               <nav className="preview__icons">
                 <a
-                  className="preview__icons--measures js_designColor js_previewPhone"
+                  className="preview__icons--measures"
                   href={"+34" + data.phone}
                   title="phone"
                   name="phone"
@@ -191,13 +215,15 @@ function App() {
                   <h4 className="titlecolours">colores</h4>
                   <div>
                     <div className="colourboxesmaster js_designevent">
-                      <label className="label__design" htmlFor="colour1">
+                      <label className="label__design" htmlFor="palette-1">
                         <input
-                          id="1"
+                          id="palette-1"
                           className="design__input js_design"
                           type="radio"
                           value="1"
                           name="palette"
+                          onChange={handlePalette}
+                          // checked={palette}
                         />
                         <ul className="colourboxes colourone">
                           <li className="item1-item1 li">Color A</li>
@@ -206,13 +232,15 @@ function App() {
                         </ul>
                       </label>
                     </div>
-                    <label className="label__design" htmlFor="colour2">
+                    <label className="label__design" htmlFor="palette-2">
                       <input
-                        id="2"
+                        id="palette-2"
                         className="design__input js_design"
                         type="radio"
                         value="2"
                         name="palette"
+                        onChange={handlePalette}
+                        // checked={palette}
                       />
                       <ul className="colourboxes colourtwo">
                         <li className="item2-item1 li">Color A</li>
@@ -220,13 +248,15 @@ function App() {
                         <li className="item2-item3 li">Color C</li>
                       </ul>
                     </label>
-                    <label className="label__design" htmlFor="colour3">
+                    <label className="label__design" htmlFor="palette-3">
                       <input
-                        id="3"
+                        id="palette-3"
                         className="design__input js_design"
                         type="radio"
                         value="3"
                         name="palette"
+                        onChange={handlePalette}
+                        // checked={palette}
                       />
                       <ul className="colourboxes colourthree">
                         <li className="item3-item2 li">Color B</li>
