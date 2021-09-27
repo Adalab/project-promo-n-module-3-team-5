@@ -198,8 +198,6 @@ function App() {
                           type="radio"
                           value="1"
                           name="palette"
-                          /*onChange={hanlePalette}
-                          checked={palette}*/
                         />
                         <ul className="colourboxes colourone">
                           <li className="item1-item1 li">Color A</li>
