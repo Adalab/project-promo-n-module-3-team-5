@@ -1,5 +1,7 @@
 import imagePreview from "../images/previewImg.jpg";
 
+import "../styles/components/Preview.scss";
+
 function Preview(props) {
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
   let nameToDisplay = showToDisplay(props.data.name, "Nombre Apellidos");
