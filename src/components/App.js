@@ -1,100 +1,103 @@
+//Ficheros componentes
+import Footer from './Footer';
+
 // Fichero src/components/App.js
-import "../styles/App.scss";
+import '../styles/App.scss';
 // Migración imagenes
-import logoAwesone from "../images/logo-awesome-profile-cards.svg";
-import logoAdalab from "../images/logo-adalab.png";
-import imagePreview from "../images/previewImg.jpg";
+import logoAwesone from '../images/logo-awesome-profile-cards.svg';
+
+import imagePreview from '../images/previewImg.jpg';
 //useState
-import { useState } from "react";
+import { useState } from 'react';
 
 function App() {
   // Variables colapsables
-  const [collapseDesign, setCollapseDesign] = useState("");
-  const [collapseFill, setCollapseFill] = useState("hidden");
-  const [collapseShare, setCollapseShare] = useState("hidden");
+  const [collapseDesign, setCollapseDesign] = useState('');
+  const [collapseFill, setCollapseFill] = useState('hidden');
+  const [collapseShare, setCollapseShare] = useState('hidden');
 
   // Variable del Input del formulario (array de datos)
   const [data, setData] = useState({
     palette: 1,
-    name: "",
-    job: "",
-    phone: "",
-    email: "",
-    linkedin: "",
-    github: "",
-    photo: "",
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+    photo: '',
   });
 
   // Variable de paletas
   const [palette, setPalette] = useState(1);
 
   // Funcion manejadora del formulario
-  
+
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
-    if (wichInput === "name") {
+    if (wichInput === 'name') {
       setData({
         ...data,
         name: ev.currentTarget.value,
       });
-    } else if (wichInput === "job") {
+    } else if (wichInput === 'job') {
       setData({ ...data, job: ev.currentTarget.value });
-    } else if (wichInput === "phone") {
+    } else if (wichInput === 'phone') {
       setData({ ...data, phone: ev.currentTarget.value });
-    } else if (wichInput === "email") {
+    } else if (wichInput === 'email') {
       setData({ ...data, email: ev.currentTarget.value });
-    } else if (wichInput === "linkedin") {
+    } else if (wichInput === 'linkedin') {
       setData({ ...data, linkedin: ev.currentTarget.value });
-    } else if (wichInput === "github") {
+    } else if (wichInput === 'github') {
       setData({ ...data, github: ev.currentTarget.value });
-    } 
+    }
   };
 
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
-  let nameToDisplay = showToDisplay(data.name,'Nombre Apellidos');
-  let jobToDisplay = showToDisplay(data.job,'Front-end Developer');
+  let nameToDisplay = showToDisplay(data.name, 'Nombre Apellidos');
+  let jobToDisplay = showToDisplay(data.job, 'Front-end Developer');
 
-  function showToDisplay (dataSome, result) {
-    if ( dataSome === '') {
-      return result
+  function showToDisplay(dataSome, result) {
+    if (dataSome === '') {
+      return result;
     } else {
-      return dataSome
+      return dataSome;
     }
   }
 
-  // Escuchadores de apertura y cierre de secciones 
+  // Escuchadores de apertura y cierre de secciones
   const handleCollapsableDesign = (ev) => {
-    if (collapseDesign === "hidden") {
-      setCollapseDesign("");
-      setCollapseFill("hidden");
-      setCollapseShare("hidden");
+    if (collapseDesign === 'hidden') {
+      setCollapseDesign('');
+      setCollapseFill('hidden');
+      setCollapseShare('hidden');
     } else {
-      setCollapseDesign("hidden");
+      setCollapseDesign('hidden');
       console.log(collapseDesign);
     }
   };
   const handleCollapsableFill = (ev) => {
-    if (collapseFill === "hidden") {
-      setCollapseFill("");
-      setCollapseDesign("hidden");
-      setCollapseShare("hidden");
+    if (collapseFill === 'hidden') {
+      setCollapseFill('');
+      setCollapseDesign('hidden');
+      setCollapseShare('hidden');
     } else {
-      setCollapseFill("hidden");
+      setCollapseFill('hidden');
       console.log(collapseDesign);
     }
   };
   const handleCollapsableShare = (ev) => {
-    if (collapseShare === "hidden") {
-      setCollapseShare("");
-      setCollapseDesign("hidden");
-      setCollapseFill("hidden");
+    if (collapseShare === 'hidden') {
+      setCollapseShare('');
+      setCollapseDesign('hidden');
+      setCollapseFill('hidden');
     } else {
-      setCollapseShare("hidden");
+      setCollapseShare('hidden');
       console.log(collapseDesign);
     }
   };
 
-  const handleForm = () => {}
+  const handleForm = () => {};
 
   return (
     <div className="root">
@@ -128,7 +131,7 @@ function App() {
               <nav className="preview__icons">
                 <a
                   className="preview__icons--measures js_designColor js_previewPhone"
-                  href={"+34" + data.phone}
+                  href={'+34' + data.phone}
                   title="phone"
                   name="phone"
                 >
@@ -171,9 +174,9 @@ function App() {
                 <h3 className="collapsable__title">Diseña</h3>
                 <i
                   className={
-                    "fas fa-chevron-" +
-                    (collapseDesign === "hidden" ? "down" : "up") +
-                    " collapsable__iconEnd js_iconEnd"
+                    'fas fa-chevron-' +
+                    (collapseDesign === 'hidden' ? 'down' : 'up') +
+                    ' collapsable__iconEnd js_iconEnd'
                   }
                 ></i>
               </div>
@@ -187,7 +190,7 @@ function App() {
                   <i className='fas fa-chevron-up arrowdesign'></i>
                 </div> */}
                 <div className="rectangle-2"></div>
-                <fieldset className={collapseDesign + " flexboxdesign"}>
+                <fieldset className={collapseDesign + ' flexboxdesign'}>
                   <h4 className="titlecolours">colores</h4>
                   <div>
                     <div className="colourboxesmaster js_designevent">
@@ -250,13 +253,13 @@ function App() {
                 <h3 className="collapsable__title">Rellena</h3>
                 <i
                   className={
-                    "fas fa-chevron-" +
-                    (collapseFill === "hidden" ? "down" : "up") +
-                    " collapsable__iconEnd js_iconEnd"
+                    'fas fa-chevron-' +
+                    (collapseFill === 'hidden' ? 'down' : 'up') +
+                    ' collapsable__iconEnd js_iconEnd'
                   }
                 ></i>
               </div>
-              <section className={collapseFill + " fill"} id="fill">
+              <section className={collapseFill + ' fill'} id="fill">
                 <fieldset className="fill__first">
                   <div className="fill__first--name">
                     <label htmlFor="fullName" className="fill__first--name-lab">
@@ -333,7 +336,7 @@ function App() {
                       name="phone"
                       value={data.phone}
                       onChange={handleInput}
-                    /> 
+                    />
                   </div>
                   <div className="fill__third--linked">
                     <label
@@ -384,9 +387,9 @@ function App() {
                 <h3 className="collapsable__title">Comparte</h3>
                 <i
                   className={
-                    "fas fa-chevron-" +
-                    (collapseShare === "hidden" ? "down" : "up") +
-                    " collapsable__iconEnd js_iconEnd"
+                    'fas fa-chevron-' +
+                    (collapseShare === 'hidden' ? 'down' : 'up') +
+                    ' collapsable__iconEnd js_iconEnd'
                   }
                 ></i>
               </div>
@@ -421,12 +424,6 @@ function App() {
             </section>
           </form>
         </main>
-        <footer className="footer__container">
-          <p className="footer__paragraph">
-            <small>Awesome profile-cards &copy;2021</small>
-          </p>
-          <img className="footer__logo" src={logoAdalab} alt="logo de adalab" />
-        </footer>
       </div>
     </div>
   );
