@@ -1,11 +1,14 @@
 // Fichero src/components/App.js
-import "../styles/App.scss";
 // Migración imagenes
-import logoAwesone from "../images/logo-awesome-profile-cards.svg";
 import logoAdalab from "../images/logo-adalab.png";
 import imagePreview from "../images/previewImg.jpg";
-//useState
+// useState
 import { useState } from "react";
+// Componentes
+import Header from './Header';
+// Estilos
+import '../styles/App.scss';
+import '../styles/core/Reset.scss';
 
 function App() {
   // Variables colapsables
@@ -122,13 +125,7 @@ function App() {
   return (
     <div className="root">
       <div className="page-wrapper">
-        <header className="header__cards--container">
-          <img
-            className="header__cards--img"
-            src={logoAwesone}
-            alt="logo-awesome-profile-cards"
-          />
-        </header>
+       <Header />
         <main className="wholeMain">
           <section className="preview">
             <button className="preview__button js_resetButton">
