@@ -48,8 +48,8 @@ function App() {
         palette: parseInt(ev.target.value)
       })
     }
-    console.log(ev.target.id, parseInt(ev.target.value))
   }
+
 
   // Busca en el formulario el target de name, para ponerlo en el 
   // array Data
@@ -136,7 +136,8 @@ function App() {
               <i className="fas fa-trash-alt"></i>reset
             </button>
             <article className="preview__card">
-              <span className="preview__pretty js_designColor"></span>
+              {/* ! empiezan estilos de la card */}
+              <span className="preview__pretty  js_designColor"></span> 
               <h2 className="preview__name js_previewName js_design">
                 {nameToDisplay}
               </h2>
@@ -151,7 +152,7 @@ function App() {
               ></div>
               <nav className="preview__icons">
                 <a
-                  className="preview__icons--measures js_designColor js_previewPhone"
+                  className="preview__icons--measures"
                   href={"+34" + data.phone}
                   title="phone"
                   name="phone"
