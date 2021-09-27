@@ -10,6 +10,13 @@ import imagePreview from '../images/previewImg.jpg';
 //useState
 import { useState } from 'react';
 
+// Componentes
+import Header from './Header';
+import Preview from './Preview';
+// Estilos
+import '../styles/App.scss';
+import '../styles/core/Reset.scss';
+
 function App() {
   // Variables colapsables
   const [collapseDesign, setCollapseDesign] = useState('');
@@ -27,9 +34,6 @@ function App() {
     github: '',
     photo: '',
   });
-
-  // Variable de paletas
-  const [palette, setPalette] = useState(1);
 
   // Funcion manejadora del formulario
 
@@ -102,13 +106,7 @@ function App() {
   return (
     <div className="root">
       <div className="page-wrapper">
-        <header className="header__cards--container">
-          <img
-            className="header__cards--img"
-            src={logoAwesone}
-            alt="logo-awesome-profile-cards"
-          />
-        </header>
+        <Header />
         <main className="wholeMain">
           <section className="preview">
             <button className="preview__button js_resetButton">
@@ -194,15 +192,15 @@ function App() {
                   <h4 className="titlecolours">colores</h4>
                   <div>
                     <div className="colourboxesmaster js_designevent">
-                      <label className="label__design" htmlFor="colour1">
+                      <label className="label__design" htmlFor="palette-1">
                         <input
-                          id="1"
+                          id="palette-1"
                           className="design__input js_design"
                           type="radio"
                           value="1"
                           name="palette"
-                          /*onChange={hanlePalette}
-                          checked={palette}*/
+                          onChange={handlePalette}
+                          // checked={palette}
                         />
                         <ul className="colourboxes colourone">
                           <li className="item1-item1 li">Color A</li>
@@ -211,13 +209,15 @@ function App() {
                         </ul>
                       </label>
                     </div>
-                    <label className="label__design" htmlFor="colour2">
+                    <label className="label__design" htmlFor="palette-2">
                       <input
-                        id="2"
+                        id="palette-2"
                         className="design__input js_design"
                         type="radio"
                         value="2"
                         name="palette"
+                        onChange={handlePalette}
+                        // checked={palette}
                       />
                       <ul className="colourboxes colourtwo">
                         <li className="item2-item1 li">Color A</li>
@@ -225,13 +225,15 @@ function App() {
                         <li className="item2-item3 li">Color C</li>
                       </ul>
                     </label>
-                    <label className="label__design" htmlFor="colour3">
+                    <label className="label__design" htmlFor="palette-3">
                       <input
-                        id="3"
+                        id="palette-3"
                         className="design__input js_design"
                         type="radio"
                         value="3"
                         name="palette"
+                        onChange={handlePalette}
+                        // checked={palette}
                       />
                       <ul className="colourboxes colourthree">
                         <li className="item3-item2 li">Color B</li>
