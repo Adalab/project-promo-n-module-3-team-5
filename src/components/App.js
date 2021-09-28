@@ -1,107 +1,108 @@
 //Ficheros componentes
-import Footer from './Footer';
+import Footer from "./Footer";
 
 // Fichero src/components/App.js
-import '../styles/App.scss';
+import "../styles/App.scss";
 // Migración imagenes
-import logoAwesone from '../images/logo-awesome-profile-cards.svg';
+import logoAwesone from "../images/logo-awesome-profile-cards.svg";
 
-import imagePreview from '../images/previewImg.jpg';
+import imagePreview from "../images/previewImg.jpg";
 //useState
-import { useState } from 'react';
+import { useState } from "react";
 
 // Componentes
-import Header from './Header';
-import Preview from './Preview';
-import Share from './Share';
+import Header from "./Header";
+import Preview from "./Preview";
+import Share from "./Share";
 // Estilos
-import '../styles/App.scss';
-import '../styles/core/Reset.scss';
+import "../styles/App.scss";
+import "../styles/core/Reset.scss";
 
 function App() {
   // Variables colapsables
-  const [collapseDesign, setCollapseDesign] = useState('');
-  const [collapseFill, setCollapseFill] = useState('hidden');
-  const [collapseShare, setCollapseShare] = useState('hidden');
+  const [collapseDesign, setCollapseDesign] = useState("");
+  const [collapseFill, setCollapseFill] = useState("hidden");
+  const [collapseShare, setCollapseShare] = useState("hidden");
 
   // Variables de las paletas (radio)
-  const [firstColor, setFirstColor] = useState('');
-  const [secondColor, setSecondColor] = useState('');
-  const [thirdColor, setThirdColor] = useState('');
+  const [firstColor, setFirstColor] = useState("");
+  const [secondColor, setSecondColor] = useState("");
+  const [thirdColor, setThirdColor] = useState("");
+
   // Variable del Input del formulario (array de datos)
   const [data, setData] = useState({
     palette: 1,
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
+    name: "",
+    job: "",
+    phone: "",
+    email: "",
+    linkedin: "",
+    github: "",
+    photo: "",
   });
 
   // Funcion manejadora del formulario
-  
-  // Busca el id de la paleta, ya que al ser un radio, 
-  // los names deben ser iguales, por esto debemos utilizar id y 
+
+  // Busca el id de la paleta, ya que al ser un radio,
+  // los names deben ser iguales, por esto debemos utilizar id y
   // no de puede utilizar en handleInput (que llama names)
   const handlePalette = (ev) => {
     const whichRadio = ev.target.id;
-    if (whichRadio === 'palette-1') { 
+    if (whichRadio === "palette-1") {
       setData({
-        ...data, 
-        palette: parseInt(ev.target.value)
-      })
-      setFirstColor('defaultpalette');
-      setSecondColor('');
-      setThirdColor('');
-    } else if (whichRadio === 'palette-2') {
+        ...data,
+        palette: parseInt(ev.target.value),
+      });
+      setFirstColor("defaultpalette");
+      setSecondColor("");
+      setThirdColor("");
+    } else if (whichRadio === "palette-2") {
       setData({
-        ...data, 
-        palette: parseInt(ev.target.value)
-      })
-      setSecondColor('redpalette');
-      setFirstColor('');
-      setThirdColor('');
-    } else if (whichRadio === 'palette-3') {
+        ...data,
+        palette: parseInt(ev.target.value),
+      });
+      setSecondColor("redpalette");
+      setFirstColor("");
+      setThirdColor("");
+    } else if (whichRadio === "palette-3") {
       setData({
-        ...data, 
-        palette: parseInt(ev.target.value)
-      })
-      setThirdColor('yellowpalette');
-      setFirstColor('');
-      setSecondColor('');
+        ...data,
+        palette: parseInt(ev.target.value),
+      });
+      setThirdColor("yellowpalette");
+      setFirstColor("");
+      setSecondColor("");
     }
-  }
+  };
 
-  // Busca en el formulario el target de name, para ponerlo en el 
+  // Busca en el formulario el target de name, para ponerlo en el
   // array Data
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
-    if (wichInput === 'name') {
+    if (wichInput === "name") {
       setData({
         ...data,
         name: ev.currentTarget.value,
       });
-    } else if (wichInput === 'job') {
+    } else if (wichInput === "job") {
       setData({ ...data, job: ev.currentTarget.value });
-    } else if (wichInput === 'phone') {
+    } else if (wichInput === "phone") {
       setData({ ...data, phone: ev.currentTarget.value });
-    } else if (wichInput === 'email') {
+    } else if (wichInput === "email") {
       setData({ ...data, email: ev.currentTarget.value });
-    } else if (wichInput === 'linkedin') {
+    } else if (wichInput === "linkedin") {
       setData({ ...data, linkedin: ev.currentTarget.value });
-    } else if (wichInput === 'github') {
+    } else if (wichInput === "github") {
       setData({ ...data, github: ev.currentTarget.value });
     }
   };
 
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
-  let nameToDisplay = showToDisplay(data.name, 'Nombre Apellidos');
-  let jobToDisplay = showToDisplay(data.job, 'Front-end Developer');
+  let nameToDisplay = showToDisplay(data.name, "Nombre Apellidos");
+  let jobToDisplay = showToDisplay(data.job, "Front-end Developer");
 
   function showToDisplay(dataSome, result) {
-    if (dataSome === '') {
+    if (dataSome === "") {
       return result;
     } else {
       return dataSome;
@@ -110,32 +111,32 @@ function App() {
 
   // Escuchadores de apertura y cierre de secciones
   const handleCollapsableDesign = (ev) => {
-    if (collapseDesign === 'hidden') {
-      setCollapseDesign('');
-      setCollapseFill('hidden');
-      setCollapseShare('hidden');
+    if (collapseDesign === "hidden") {
+      setCollapseDesign("");
+      setCollapseFill("hidden");
+      setCollapseShare("hidden");
     } else {
-      setCollapseDesign('hidden');
+      setCollapseDesign("hidden");
       console.log(collapseDesign);
     }
   };
   const handleCollapsableFill = (ev) => {
-    if (collapseFill === 'hidden') {
-      setCollapseFill('');
-      setCollapseDesign('hidden');
-      setCollapseShare('hidden');
+    if (collapseFill === "hidden") {
+      setCollapseFill("");
+      setCollapseDesign("hidden");
+      setCollapseShare("hidden");
     } else {
-      setCollapseFill('hidden');
+      setCollapseFill("hidden");
       console.log(collapseDesign);
     }
   };
   const handleCollapsableShare = (ev) => {
-    if (collapseShare === 'hidden') {
-      setCollapseShare('');
-      setCollapseDesign('hidden');
-      setCollapseFill('hidden');
+    if (collapseShare === "hidden") {
+      setCollapseShare("");
+      setCollapseDesign("hidden");
+      setCollapseFill("hidden");
     } else {
-      setCollapseShare('hidden');
+      setCollapseShare("hidden");
       console.log(collapseDesign);
     }
   };
@@ -143,137 +144,95 @@ function App() {
   const handleForm = () => {};
 
   return (
-    <div className='root'>
-      <div className='page-wrapper'>
+    <div className="root">
+      <div className="page-wrapper">
         <Header />
-        <main className='wholeMain'>
-          <section className='preview'>
-            <button className='preview__button js_resetButton'>
-              <i className='fas fa-trash-alt'></i>reset
-            </button>
-            <article className='preview__card'>
-              <span className={`preview__pretty ${firstColor} ${secondColor} ${thirdColor}`} ></span>
-              <h2 className={`preview__name ${firstColor} ${secondColor} ${thirdColor} `}>
-                {nameToDisplay}
-              </h2>
-              <h3 className={`preview__description`}>
-                {jobToDisplay}
-              </h3>
-              <div
-                style={{
-                  backgroundImage: `url(${imagePreview})`,
-                }}
-                className='preview__image js__profile-image'
-              ></div>
-              <nav className='preview__icons'>
-                <a
-                  className={`preview__icons--measures  ${firstColor} ${secondColor} ${thirdColor}`}
-                  href={'+34' + data.phone}
-                  title='phone'
-                  name='phone'
-                >
-                  <i className='fas fa-mobile-alt'></i>
-                </a>
-                <a
-                  className={`preview__icons--measures  ${firstColor} ${secondColor} ${thirdColor}`}
-                  href={`mailto:${data.email}`}
-                  title='message'
-                >
-                  <i className='far fa-envelope'></i>
-                </a>
-                <a
-                  className={`preview__icons--measures ${firstColor} ${secondColor} ${thirdColor}`}
-                  href={`https://linkedin.com/in/${data.linkedin}`}
-                  target='_blank'
-                  title='linkedin'
-                >
-                  <i className='fab fa-linkedin-in'></i>
-                </a>
-                <a
-                  className={`preview__icons--measures  ${firstColor} ${secondColor} ${thirdColor}`}
-                  href={`https://github.com/${data.github}`}
-                  target='_blank'
-                  title='github'
-                >
-                  <i className='fab fa-github-alt'></i>
-                </a>
-              </nav>
-            </article>
-          </section>
+        <main className="wholeMain">
+          
+          <Preview
+            firstColor={firstColor}
+            secondColor={secondColor}
+            thirdColor={thirdColor}
+            name={data.name}
+            job={data.job}
+            phone={data.phone}
+            email={data.email}
+            linkedin={data.linkedin}
+            github={data.github}
+          />
 
-          <form onSubmit={handleForm} className='form'>
+          <form onSubmit={handleForm} className="form">
             <div>
               <div
-                className='collapsable  js_collapsable_design'
+                className="collapsable  js_collapsable_design"
                 onClick={handleCollapsableDesign}
               >
-                <i className='far fa-object-ungroup cloningicon collapsable__iconStart'></i>
-                <h3 className='collapsable__title'>Diseña</h3>
+                <i className="far fa-object-ungroup cloningicon collapsable__iconStart"></i>
+                <h3 className="collapsable__title">Diseña</h3>
                 <i
                   className={
-                    'fas fa-chevron-' +
-                    (collapseDesign === 'hidden' ? 'down' : 'up') +
-                    ' collapsable__iconEnd js_iconEnd'
+                    "fas fa-chevron-" +
+                    (collapseDesign === "hidden" ? "down" : "up") +
+                    " collapsable__iconEnd js_iconEnd"
                   }
                 ></i>
               </div>
               <section
-                className='wholecollapsable-design     js_section'
-                id='desing'
+                className="wholecollapsable-design     js_section"
+                id="desing"
               >
-                <div className='rectangle-2'></div>
-                <fieldset className={collapseDesign + ' flexboxdesign'}>
-                  <h4 className='titlecolours'>colores</h4>
+                <div className="rectangle-2"></div>
+                <fieldset className={collapseDesign + " flexboxdesign"}>
+                  <h4 className="titlecolours">colores</h4>
                   <div>
-                    <div className='colourboxesmaster js_designevent'>
-                      <label className='label__design' htmlFor='palette-1'>
+                    <div className="colourboxesmaster js_designevent">
+                      <label className="label__design" htmlFor="palette-1">
                         <input
-                          id='palette-1'
-                          className='design__input js_design'
-                          type='radio'
-                          value='1'
-                          name='palette'
-                          
+                          id="palette-1"
+                          className="design__input js_design"
+                          type="radio"
+                          value="1"
+                          name="palette"
                           onChange={handlePalette}
                           // checked={palette}
                         />
-                        <ul className='colourboxes colourone'>
-                          <li className='item1-item1 li'>Color A</li>
-                          <li className='item1-item2 li'>Color B</li>
-                          <li className='item1-item3 li'>Color C</li>
+                        <ul className="colourboxes colourone">
+                          <li className="item1-item1 li">Color A</li>
+                          <li className="item1-item2 li">Color B</li>
+                          <li className="item1-item3 li">Color C</li>
                         </ul>
                       </label>
                     </div>
-                    <label className='label__design' htmlFor='palette-2'>
+                    <label className="label__design" htmlFor="palette-2">
                       <input
-                        id='palette-2'
-                        className='design__input js_design'
-                        type='radio'
-                        value='2'
-                        name='palette'
-                        onChange={handlePalette} 
-                        // checked={palette}
-                      />
-                      <ul className='colourboxes colourtwo'>
-                        <li className='item2-item1 li'>Color A</li>
-                        <li className='item2-item2 li'>Color B</li>
-                        <li className='item2-item3 li'>Color C</li>
-                      </ul>
-                    </label>
-                    <label className='label__design' htmlFor='palette-3'>
-                      <input
-                        id='palette-3'
-                        className='design__input js_design'
-                        type='radio'
-                        value='3'
-                        name='palette'
+                        id="palette-2"
+                        className="design__input js_design"
+                        type="radio"
+                        value="2"
+                        name="palette"
                         onChange={handlePalette}
                         // checked={palette}
                       />
-                      <ul className='colourboxes colourthree'>
-                        <li className='item3-item2 li'>Color B</li>
-                        <li className='item3-item1 li'>Color A</li>
-                        <li className='item3-item3 li'>Color C</li>
+                      <ul className="colourboxes colourtwo">
+                        <li className="item2-item1 li">Color A</li>
+                        <li className="item2-item2 li">Color B</li>
+                        <li className="item2-item3 li">Color C</li>
+                      </ul>
+                    </label>
+                    <label className="label__design" htmlFor="palette-3">
+                      <input
+                        id="palette-3"
+                        className="design__input js_design"
+                        type="radio"
+                        value="3"
+                        name="palette"
+                        onChange={handlePalette}
+                        // checked={palette}
+                      />
+                      <ul className="colourboxes colourthree">
+                        <li className="item3-item2 li">Color B</li>
+                        <li className="item3-item1 li">Color A</li>
+                        <li className="item3-item3 li">Color C</li>
                       </ul>
                     </label>
                   </div>
@@ -281,131 +240,131 @@ function App() {
               </section>
             </div>
             <div>
-              <div className='topBorder'></div>
+              <div className="topBorder"></div>
               <div
-                className='collapsable js_collapsable_fill '
+                className="collapsable js_collapsable_fill "
                 onClick={handleCollapsableFill}
               >
-                <i className='far fa-keyboard collapsable__iconStart'></i>
-                <h3 className='collapsable__title'>Rellena</h3>
+                <i className="far fa-keyboard collapsable__iconStart"></i>
+                <h3 className="collapsable__title">Rellena</h3>
                 <i
                   className={
-                    'fas fa-chevron-' +
-                    (collapseFill === 'hidden' ? 'down' : 'up') +
-                    ' collapsable__iconEnd js_iconEnd'
+                    "fas fa-chevron-" +
+                    (collapseFill === "hidden" ? "down" : "up") +
+                    " collapsable__iconEnd js_iconEnd"
                   }
                 ></i>
               </div>
-              <section className={collapseFill + ' fill'} id='fill'>
-                <fieldset className='fill__first'>
-                  <div className='fill__first--name'>
-                    <label htmlFor='fullName' className='fill__first--name-lab'>
+              <section className={collapseFill + " fill"} id="fill">
+                <fieldset className="fill__first">
+                  <div className="fill__first--name">
+                    <label htmlFor="fullName" className="fill__first--name-lab">
                       Nombre completo *
                     </label>
                     <input
                       value={data.name}
-                      className='fill__first--name-inp js_allInputs'
-                      placeholder='Ej: Sally Jill'
-                      id='name'
-                      type='text'
-                      name='name'
+                      className="fill__first--name-inp js_allInputs"
+                      placeholder="Ej: Sally Jill"
+                      id="name"
+                      type="text"
+                      name="name"
                       onChange={handleInput}
                     />
                   </div>
-                  <div className='fill__first--position'>
+                  <div className="fill__first--position">
                     <label
-                      htmlFor='position'
-                      className='fill__first--position-lab'
+                      htmlFor="position"
+                      className="fill__first--position-lab"
                     >
                       Puesto *
                     </label>
                     <input
                       value={data.job}
-                      className='fill__first--position-inp js_allInputs'
-                      placeholder='Ej: Front-end unicorn'
-                      id='job'
-                      type='text'
-                      name='job'
+                      className="fill__first--position-inp js_allInputs"
+                      placeholder="Ej: Front-end unicorn"
+                      id="job"
+                      type="text"
+                      name="job"
                       onChange={handleInput}
                     />
                   </div>
                 </fieldset>
-                <fieldset className='fill__second'>
-                  <label className='fill__second-label'>
+                <fieldset className="fill__second">
+                  <label className="fill__second-label">
                     Imagen de perfil *
                   </label>
-                  <div className='fill__second-buttoncheck'>
-                    <label className='fill__second-button' htmlFor='photo'>
+                  <div className="fill__second-buttoncheck">
+                    <label className="fill__second-button" htmlFor="photo">
                       Añadir imagen
                     </label>
                     <input
-                      type='file'
-                      id='photo'
-                      className='hidden_button js__profile-upload-btn'
+                      type="file"
+                      id="photo"
+                      className="hidden_button js__profile-upload-btn"
                     />
-                    <div className='fill__second-checkbox js__profile-preview'></div>
+                    <div className="fill__second-checkbox js__profile-preview"></div>
                   </div>
                 </fieldset>
-                <fieldset className='fill__third'>
-                  <div className='fill__third--mail'>
-                    <label htmlFor='email' className='fill__third--mail-lab'>
+                <fieldset className="fill__third">
+                  <div className="fill__third--mail">
+                    <label htmlFor="email" className="fill__third--mail-lab">
                       Email *
                     </label>
                     <input
-                      className='fill__third--mail-inp'
-                      placeholder='Ej: sally-hill@gmail.com'
-                      id='email'
-                      type='email'
-                      name='email'
+                      className="fill__third--mail-inp"
+                      placeholder="Ej: sally-hill@gmail.com"
+                      id="email"
+                      type="email"
+                      name="email"
                       value={data.email}
                       onChange={handleInput}
                     />
                   </div>
-                  <div className='fill__third--tel'>
-                    <label htmlFor='telephone' className='fill__third--tel-lab'>
+                  <div className="fill__third--tel">
+                    <label htmlFor="telephone" className="fill__third--tel-lab">
                       Teléfono
                     </label>
                     <input
-                      className='fill__third--tel-inp js_allInputs'
-                      placeholder='Ej: 555-55-55-55'
-                      id='phone'
-                      type='tel'
-                      name='phone'
+                      className="fill__third--tel-inp js_allInputs"
+                      placeholder="Ej: 555-55-55-55"
+                      id="phone"
+                      type="tel"
+                      name="phone"
                       value={data.phone}
                       onChange={handleInput}
                     />
                   </div>
-                  <div className='fill__third--linked'>
+                  <div className="fill__third--linked">
                     <label
-                      htmlFor='linkedinName'
-                      className='fill__third--linked-lab'
+                      htmlFor="linkedinName"
+                      className="fill__third--linked-lab"
                     >
                       Linkedin *
                     </label>
                     <input
-                      className='fill__third--linked-inp js_allInputs'
-                      placeholder='Ej: linkedin.com/in/sally.hill'
-                      id='linkedin'
-                      type='text'
-                      name='linkedin'
+                      className="fill__third--linked-inp js_allInputs"
+                      placeholder="Ej: linkedin.com/in/sally.hill"
+                      id="linkedin"
+                      type="text"
+                      name="linkedin"
                       value={data.linkedin}
                       onChange={handleInput}
                     />
                   </div>
                   {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
-                  <div className='fill__third--git'>
+                  <div className="fill__third--git">
                     <label
-                      htmlFor='gitHubName'
-                      className='fill__third--git-lab'
+                      htmlFor="gitHubName"
+                      className="fill__third--git-lab"
                     >
                       Github *
                     </label>
                     <input
-                      className='fill__third--git-inp js_allInputs'
-                      placeholder='Ej: @sally-hill'
-                      id='github'
-                      type='text'
-                      name='github'
+                      className="fill__third--git-inp js_allInputs"
+                      placeholder="Ej: @sally-hill"
+                      id="github"
+                      type="text"
+                      name="github"
                       value={data.github}
                       onChange={handleInput}
                     />
@@ -415,18 +374,18 @@ function App() {
               </section>
             </div>
             <div>
-              <div className='topBorder'></div>
+              <div className="topBorder"></div>
               <div
-                className='collapsable js_collapsable'
+                className="collapsable js_collapsable"
                 onClick={handleCollapsableShare}
               >
-                <i className='fas fa-share-alt collapsable__iconStart'></i>
-                <h3 className='collapsable__title'>Comparte</h3>
+                <i className="fas fa-share-alt collapsable__iconStart"></i>
+                <h3 className="collapsable__title">Comparte</h3>
                 <i
                   className={
-                    'fas fa-chevron-' +
-                    (collapseShare === 'hidden' ? 'down' : 'up') +
-                    ' collapsable__iconEnd js_iconEnd'
+                    "fas fa-chevron-" +
+                    (collapseShare === "hidden" ? "down" : "up") +
+                    " collapsable__iconEnd js_iconEnd"
                   }
                 ></i>
               </div>

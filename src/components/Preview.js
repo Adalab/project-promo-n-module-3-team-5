@@ -4,8 +4,8 @@ import "../styles/components/Preview.scss";
 
 function Preview(props) {
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
-  let nameToDisplay = showToDisplay(props.data.name, "Nombre Apellidos");
-  let jobToDisplay = showToDisplay(props.data.job, "Front-end Developer");
+  let nameToDisplay = showToDisplay(props.name, "Nombre Apellidos");
+  let jobToDisplay = showToDisplay(props.job, "Front-end Developer");
 
   function showToDisplay(dataSome, result) {
     if (dataSome === "") {
@@ -21,13 +21,15 @@ function Preview(props) {
         <i className="fas fa-trash-alt"></i>reset
       </button>
       <article className="preview__card">
-        <span className="preview__pretty  js_designColor"></span>
-        <h2 className="preview__name js_previewName js_design">
+        <span
+          className={`preview__pretty ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+        ></span>
+        <h2
+          className={`preview__name ${props.firstColor} ${props.secondColor} ${props.thirdColor} `}
+        >
           {nameToDisplay}
         </h2>
-        <h3 className="preview__description js_previewDescription">
-          {jobToDisplay}
-        </h3>
+        <h3 className={`preview__description`}>{jobToDisplay}</h3>
         <div
           style={{
             backgroundImage: `url(${imagePreview})`,
@@ -36,31 +38,31 @@ function Preview(props) {
         ></div>
         <nav className="preview__icons">
           <a
-            className="preview__icons--measures"
-            href={"+34" + props.data.phone}
+            className={`preview__icons--measures  ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            href={"+34" + props.phone}
             title="phone"
             name="phone"
           >
             <i className="fas fa-mobile-alt"></i>
           </a>
           <a
-            className="preview__icons--measures"
-            href={`mailto:${props.data.email}`}
+            className={`preview__icons--measures ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            href={`mailto:${props.email}`}
             title="message"
           >
             <i className="far fa-envelope"></i>
           </a>
           <a
-            className="preview__icons--measures js_designColor js_previewLinkedin"
-            href={`https://linkedin.com/in/${props.data.linkedin}`}
+            className={`preview__icons--measures ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            href={`https://linkedin.com/in/${props.linkedin}`}
             target="_blank"
             title="linkedin"
           >
             <i className="fab fa-linkedin-in"></i>
           </a>
           <a
-            className="preview__icons--measures js_designColor js_previewGithub"
-            href={`https://github.com/${props.data.github}`}
+            className={`preview__icons--measures  ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            href={`https://github.com/${props.github}`}
             target="_blank"
             title="github"
           >
