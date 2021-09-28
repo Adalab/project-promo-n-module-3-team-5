@@ -36,6 +36,29 @@ function App() {
     photo: '',
   });
 
+  // Busca el id de la paleta, ya que al ser un radio,
+  // los names deben ser iguales, por esto debemos utilizar id y
+  // no de puede utilizar en handleInput (que llama names)
+  const handlePalette = (ev) => {
+    const whichRadio = ev.target.id;
+    if (whichRadio === 'palette-1') {
+      setData({
+        ...data,
+        palette: parseInt(ev.target.value),
+      });
+    } else if (whichRadio === 'palette-2') {
+      setData({
+        ...data,
+        palette: parseInt(ev.target.value),
+      });
+    } else if (whichRadio === 'palette-3') {
+      setData({
+        ...data,
+        palette: parseInt(ev.target.value),
+      });
+    }
+  };
+
   // Funcion manejadora del formulario
 
   const handleInput = (ev) => {
@@ -200,8 +223,8 @@ function App() {
                           type='radio'
                           value='1'
                           name='palette'
-                          /*  onChange={handlePalette} */
-                          // checked={palette}
+                          onChange={handlePalette}
+                          /*  checked={palette} */
                         />
                         <ul className='colourboxes colourone'>
                           <li className='item1-item1 li'>Color A</li>
@@ -217,7 +240,7 @@ function App() {
                         type='radio'
                         value='2'
                         name='palette'
-                        /* onChange={handlePalette} */
+                        onChange={handlePalette}
                         // checked={palette}
                       />
                       <ul className='colourboxes colourtwo'>
@@ -233,7 +256,7 @@ function App() {
                         type='radio'
                         value='3'
                         name='palette'
-                        /* onChange={handlePalette} */
+                        onChange={handlePalette}
                         // checked={palette}
                       />
                       <ul className='colourboxes colourthree'>
@@ -397,7 +420,34 @@ function App() {
                 ></i>
               </div>
             </div>
-            <Share />
+            <section className={collapseShare} id='share'>
+              <fieldset className='share'>
+                <div className='share__second'>
+                  <button className='share__button js_shareButton'>
+                    <i className='far fa-address-card'></i> Crear tarjeta
+                  </button>
+                </div>
+                <div className='share__topBorder'> </div>
+                <div className='share__collapsable js_createdCard'>
+                  <h3 className='share__collapsable__title js_notCreate'>
+                    La tarjeta ha sido creada
+                  </h3>
+                  <p className='card__http js_urlCard'>
+                    https://awesome-profile-card.com?id=A456DF0001
+                  </p>
+                  <button className='share__collapsable__button js_twiterBtn'>
+                    <a
+                      className='share__collapsable__button--link'
+                      href=''
+                      target='_blank'
+                    >
+                      <i className='icon3 fab fa-twitter'></i>&nbsp;Compartir en
+                      twitter
+                    </a>
+                  </button>
+                </div>
+              </fieldset>
+            </section>
           </form>
         </main>
       </div>
