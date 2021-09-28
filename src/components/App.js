@@ -183,11 +183,6 @@ function App() {
                 className='wholecollapsable-design     js_section'
                 id='desing'
               >
-                {/*   <div className='titledesignflex'>
-                  <i className='far fa-object-ungroup cloningicon'></i>
-                  <h3 className='titledesign'>diseña</h3>
-                  <i className='fas fa-chevron-up arrowdesign'></i>
-                </div> */}
                 <div className='rectangle-2'></div>
                 <fieldset className={collapseDesign + ' flexboxdesign'}>
                   <h4 className='titlecolours'>colores</h4>
