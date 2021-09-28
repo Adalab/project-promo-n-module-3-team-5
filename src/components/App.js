@@ -397,9 +397,11 @@ function App() {
                 ></i>
               </div>
             </div>
+            <Share />
           </form>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
