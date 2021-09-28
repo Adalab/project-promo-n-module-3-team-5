@@ -199,7 +199,7 @@ function App() {
                           type="radio"
                           value="1"
                           name="palette"
-                          onChange={handlePalette}
+                          /* onChange={handlePalette} */
                           // checked={palette}
                         />
                         <ul className="colourboxes colourone">
@@ -216,7 +216,7 @@ function App() {
                         type="radio"
                         value="2"
                         name="palette"
-                        onChange={handlePalette}
+                        /* onChange={handlePalette} */
                         // checked={palette}
                       />
                       <ul className="colourboxes colourtwo">
@@ -232,7 +232,7 @@ function App() {
                         type="radio"
                         value="3"
                         name="palette"
-                        onChange={handlePalette}
+                        /* onChange={handlePalette} */
                         // checked={palette}
                       />
                       <ul className="colourboxes colourthree">
@@ -427,6 +427,7 @@ function App() {
           </form>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
