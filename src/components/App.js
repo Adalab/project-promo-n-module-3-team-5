@@ -194,11 +194,11 @@ function App() {
                     <div className='colourboxesmaster js_designevent'>
                       <label className='label__design' htmlFor='palette-1'>
                         <input
-                          id='palette-1'
-                          className='design__input js_design'
-                          type='radio'
-                          value='1'
-                          name='palette'
+                          id="palette-1"
+                          className="design__input js_design"
+                          type="radio"
+                          value="1"
+                          name="palette"
                           /* onChange={handlePalette} */
                           // checked={palette}
                         />
@@ -211,12 +211,12 @@ function App() {
                     </div>
                     <label className='label__design' htmlFor='palette-2'>
                       <input
-                        id='palette-2'
-                        className='design__input js_design'
-                        type='radio'
-                        value='2'
-                        name='palette'
-                        /*  onChange={handlePalette} */
+                        id="palette-2"
+                        className="design__input js_design"
+                        type="radio"
+                        value="2"
+                        name="palette"
+                        /* onChange={handlePalette} */
                         // checked={palette}
                       />
                       <ul className='colourboxes colourtwo'>
@@ -227,12 +227,12 @@ function App() {
                     </label>
                     <label className='label__design' htmlFor='palette-3'>
                       <input
-                        id='palette-3'
-                        className='design__input js_design'
-                        type='radio'
-                        value='3'
-                        name='palette'
-                        /*   onChange={handlePalette} */
+                        id="palette-3"
+                        className="design__input js_design"
+                        type="radio"
+                        value="3"
+                        name="palette"
+                        /* onChange={handlePalette} */
                         // checked={palette}
                       />
                       <ul className='colourboxes colourthree'>
@@ -427,6 +427,7 @@ function App() {
           </form>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }
