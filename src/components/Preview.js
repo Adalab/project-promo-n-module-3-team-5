@@ -21,12 +21,8 @@ function Preview(props) {
         <i className="fas fa-trash-alt"></i>reset
       </button>
       <article className="preview__card">
-        <span
-          className={`preview__pretty ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
-        ></span>
-        <h2
-          className={`preview__name ${props.firstColor} ${props.secondColor} ${props.thirdColor} `}
-        >
+        <span className={`preview__pretty ${props.paletteColor}`}></span>
+        <h2 className={`preview__name ${props.paletteColor}`}>
           {nameToDisplay}
         </h2>
         <h3 className={`preview__description`}>{jobToDisplay}</h3>
@@ -38,7 +34,7 @@ function Preview(props) {
         ></div>
         <nav className="preview__icons">
           <a
-            className={`preview__icons--measures  ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            className={`preview__icons--measures  ${props.paletteColor}`}
             href={"+34" + props.phone}
             title="phone"
             name="phone"
@@ -46,14 +42,14 @@ function Preview(props) {
             <i className="fas fa-mobile-alt"></i>
           </a>
           <a
-            className={`preview__icons--measures ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            className={`preview__icons--measures ${props.paletteColor}`}
             href={`mailto:${props.email}`}
             title="message"
           >
             <i className="far fa-envelope"></i>
           </a>
           <a
-            className={`preview__icons--measures ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            className={`preview__icons--measures ${props.paletteColor}`}
             href={`https://linkedin.com/in/${props.linkedin}`}
             target="_blank"
             title="linkedin"
@@ -61,7 +57,7 @@ function Preview(props) {
             <i className="fab fa-linkedin-in"></i>
           </a>
           <a
-            className={`preview__icons--measures  ${props.firstColor} ${props.secondColor} ${props.thirdColor}`}
+            className={`preview__icons--measures  ${props.paletteColor}`}
             href={`https://github.com/${props.github}`}
             target="_blank"
             title="github"

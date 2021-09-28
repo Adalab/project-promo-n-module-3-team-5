@@ -24,10 +24,8 @@ function App() {
   const [collapseFill, setCollapseFill] = useState("hidden");
   const [collapseShare, setCollapseShare] = useState("hidden");
 
-  // Variables de las paletas (radio)
-  const [firstColor, setFirstColor] = useState("");
-  const [secondColor, setSecondColor] = useState("");
-  const [thirdColor, setThirdColor] = useState("");
+  // Variable de las paletas (radio)
+  const [paletteColor, setPaletteColor] = useState("");
 
   // Variable del Input del formulario (array de datos)
   const [data, setData] = useState({
@@ -53,25 +51,19 @@ function App() {
         ...data,
         palette: parseInt(ev.target.value),
       });
-      setFirstColor("defaultpalette");
-      setSecondColor("");
-      setThirdColor("");
+      setPaletteColor("defaultpalette");
     } else if (whichRadio === "palette-2") {
       setData({
         ...data,
         palette: parseInt(ev.target.value),
       });
-      setSecondColor("redpalette");
-      setFirstColor("");
-      setThirdColor("");
+      setPaletteColor("redpalette");
     } else if (whichRadio === "palette-3") {
       setData({
         ...data,
         palette: parseInt(ev.target.value),
       });
-      setThirdColor("yellowpalette");
-      setFirstColor("");
-      setSecondColor("");
+      setPaletteColor("yellowpalette");
     }
   };
 
@@ -148,11 +140,8 @@ function App() {
       <div className="page-wrapper">
         <Header />
         <main className="wholeMain">
-          
           <Preview
-            firstColor={firstColor}
-            secondColor={secondColor}
-            thirdColor={thirdColor}
+            paletteColor={paletteColor}
             name={data.name}
             job={data.job}
             phone={data.phone}
