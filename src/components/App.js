@@ -1,22 +1,20 @@
 //Ficheros componentes
-import Footer from "./Footer";
-
-// Fichero src/components/App.js
-import "../styles/App.scss";
-// Migración imagenes
-import logoAwesone from "../images/logo-awesome-profile-cards.svg";
-
-import imagePreview from "../images/previewImg.jpg";
-//useState
-import { useState } from "react";
-
-// Componentes
 import Header from "./Header";
 import Preview from "./Preview";
 import Share from "./Share";
+import Footer from "./Footer";
+
 // Estilos
 import "../styles/App.scss";
 import "../styles/core/Reset.scss";
+
+// Migración imagenes
+import logoAwesone from "../images/logo-awesome-profile-cards.svg";
+import imagePreview from "../images/previewImg.jpg";
+
+// Otros
+import { useState } from "react";
+
 
 function App() {
   // Variables colapsables
