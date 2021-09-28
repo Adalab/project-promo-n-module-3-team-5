@@ -24,6 +24,10 @@ function App() {
   const [collapseFill, setCollapseFill] = useState('hidden');
   const [collapseShare, setCollapseShare] = useState('hidden');
 
+  // Variables de las paletas (radio)
+  const [firstColor, setFirstColor] = useState('');
+  const [secondColor, setSecondColor] = useState('');
+  const [thirdColor, setThirdColor] = useState('');
   // Variable del Input del formulario (array de datos)
   const [data, setData] = useState({
     palette: 1,
@@ -48,16 +52,25 @@ function App() {
         ...data, 
         palette: parseInt(ev.target.value)
       })
+      setFirstColor('defaultpalette');
+      setSecondColor('');
+      setThirdColor('');
     } else if (whichRadio === 'palette-2') {
       setData({
         ...data, 
         palette: parseInt(ev.target.value)
       })
+      setSecondColor('redpalette');
+      setFirstColor('');
+      setThirdColor('');
     } else if (whichRadio === 'palette-3') {
       setData({
         ...data, 
         palette: parseInt(ev.target.value)
       })
+      setThirdColor('yellowpalette');
+      setFirstColor('');
+      setSecondColor('');
     }
   }
 
@@ -139,11 +152,11 @@ function App() {
               <i className='fas fa-trash-alt'></i>reset
             </button>
             <article className='preview__card'>
-              <span className='preview__pretty js_designColor'></span>
-              <h2 className='preview__name js_previewName js_design'>
+              <span className={`preview__pretty ${firstColor} ${secondColor} ${thirdColor}`} ></span>
+              <h2 className={`preview__name ${firstColor} ${secondColor} ${thirdColor} `}>
                 {nameToDisplay}
               </h2>
-              <h3 className='preview__description js_previewDescription'>
+              <h3 className={`preview__description`}>
                 {jobToDisplay}
               </h3>
               <div
@@ -154,7 +167,7 @@ function App() {
               ></div>
               <nav className='preview__icons'>
                 <a
-                  className='preview__icons--measures js_designColor js_previewPhone'
+                  className={`preview__icons--measures  ${firstColor} ${secondColor} ${thirdColor}`}
                   href={'+34' + data.phone}
                   title='phone'
                   name='phone'
@@ -162,14 +175,14 @@ function App() {
                   <i className='fas fa-mobile-alt'></i>
                 </a>
                 <a
-                  className='preview__icons--measures'
+                  className={`preview__icons--measures  ${firstColor} ${secondColor} ${thirdColor}`}
                   href={`mailto:${data.email}`}
                   title='message'
                 >
                   <i className='far fa-envelope'></i>
                 </a>
                 <a
-                  className='preview__icons--measures js_designColor js_previewLinkedin'
+                  className={`preview__icons--measures ${firstColor} ${secondColor} ${thirdColor}`}
                   href={`https://linkedin.com/in/${data.linkedin}`}
                   target='_blank'
                   title='linkedin'
@@ -177,7 +190,7 @@ function App() {
                   <i className='fab fa-linkedin-in'></i>
                 </a>
                 <a
-                  className='preview__icons--measures js_designColor js_previewGithub'
+                  className={`preview__icons--measures  ${firstColor} ${secondColor} ${thirdColor}`}
                   href={`https://github.com/${data.github}`}
                   target='_blank'
                   title='github'
