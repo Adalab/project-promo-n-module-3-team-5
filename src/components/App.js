@@ -37,7 +37,32 @@ function App() {
   });
 
   // Funcion manejadora del formulario
+  
+  // Busca el id de la paleta, ya que al ser un radio, 
+  // los names deben ser iguales, por esto debemos utilizar id y 
+  // no de puede utilizar en handleInput (que llama names)
+  const handlePalette = (ev) => {
+    const whichRadio = ev.target.id;
+    if (whichRadio === 'palette-1') { 
+      setData({
+        ...data, 
+        palette: parseInt(ev.target.value)
+      })
+    } else if (whichRadio === 'palette-2') {
+      setData({
+        ...data, 
+        palette: parseInt(ev.target.value)
+      })
+    } else if (whichRadio === 'palette-3') {
+      setData({
+        ...data, 
+        palette: parseInt(ev.target.value)
+      })
+    }
+  }
 
+  // Busca en el formulario el target de name, para ponerlo en el 
+  // array Data
   const handleInput = (ev) => {
     const wichInput = ev.currentTarget.name;
     if (wichInput === 'name') {
@@ -195,7 +220,8 @@ function App() {
                           type='radio'
                           value='1'
                           name='palette'
-                          /*  onChange={handlePalette} */
+                          
+                          onChange={handlePalette}
                           // checked={palette}
                         />
                         <ul className='colourboxes colourone'>
@@ -212,7 +238,7 @@ function App() {
                         type='radio'
                         value='2'
                         name='palette'
-                        /* onChange={handlePalette} */
+                        onChange={handlePalette} 
                         // checked={palette}
                       />
                       <ul className='colourboxes colourtwo'>
@@ -228,7 +254,7 @@ function App() {
                         type='radio'
                         value='3'
                         name='palette'
-                        /* onChange={handlePalette} */
+                        onChange={handlePalette}
                         // checked={palette}
                       />
                       <ul className='colourboxes colourthree'>
