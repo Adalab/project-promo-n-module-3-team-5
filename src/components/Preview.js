@@ -1,6 +1,5 @@
-import imagePreview from "../images/previewImg.jpg";
-
 import "../styles/components/Preview.scss";
+import getPhotoUrl from "./image";
 
 function Preview(props) {
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
@@ -30,7 +29,7 @@ function Preview(props) {
         </h3>
         <div
           style={{
-            backgroundImage: `url(${imagePreview})`,
+            backgroundImage: `url(${getPhotoUrl(props.data, true)})`,
           }}
           className="preview__image js__profile-image"
         ></div>

@@ -6,7 +6,7 @@ import "../styles/App.scss";
 // Migración imagenes
 import logoAwesone from "../images/logo-awesome-profile-cards.svg";
 
-import imagePreview from "../images/previewImg.jpg";
+import getPhotoUrl from "./image";
 //useState
 import { useState } from "react";
 
@@ -37,6 +37,38 @@ function App() {
   });
 
   function handlePalette() {}
+
+  //función para previsualizar imagen usuaria:
+  const fr = new FileReader();
+  /**
+   * Recoge el archivo añadido al campo de tipo "file"
+   * y lo carga en nuestro objeto FileReader para que
+   * lo convierta a algo con lo que podamos trabajar.
+   * Añade un listener al FR para que ejecute una función
+   * al tener los datos listos
+   * @param {evento} e
+   */
+  function getImage(e) {
+    const myFile = e.currentTarget.files[0];
+    fr.addEventListener("load", writeImage);
+    fr.readAsDataURL(myFile);
+  }
+
+  /**
+   * Una vez tenemos los datos listos en el FR podemos
+   * trabajar con ellos ;)
+   */
+  function writeImage() {
+    /* En la propiedad `result` de nuestro FR se almacena
+     * el resultado. Ese resultado de procesar el fichero que hemos cargado
+     * podemos pasarlo como background a la imagen de perfil y a la vista previa
+     * de nuestro componente.
+     */
+
+    //
+    data.photo = fr.result;
+    setData({ ...data });
+  }
 
   // Funcion manejadora del formulario
 
@@ -125,7 +157,7 @@ function App() {
               </h3>
               <div
                 style={{
-                  backgroundImage: `url(${imagePreview})`,
+                  backgroundImage: `url(${getPhotoUrl(data, true)})`,
                 }}
                 className="preview__image js__profile-image"
               ></div>
@@ -231,10 +263,16 @@ function App() {
                     </label>
                     <input
                       type="file"
+                      onChange={getImage}
                       id="photo"
                       className="hidden_button js__profile-upload-btn"
                     />
-                    <div className="fill__second-checkbox js__profile-preview"></div>
+                    <div
+                      className="fill__second-checkbox js__profile-preview"
+                      style={{
+                        backgroundImage: `url(${getPhotoUrl(data, false)})`,
+                      }}
+                    ></div>
                   </div>
                 </fieldset>
                 <fieldset className="fill__third">
