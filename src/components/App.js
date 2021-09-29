@@ -1,6 +1,6 @@
 //Ficheros componentes
 import Footer from './Footer';
-import ImageReader from './ImageReader';
+
 import Form from './Form';
 
 // Fichero src/components/App.js
@@ -18,12 +18,16 @@ import Share from './Share';
 // Estilos
 import '../styles/App.scss';
 import '../styles/core/Reset.scss';
+import '../styles/components/Preview.scss';
 
 function App() {
   // Variables colapsables
   const [collapseDesign, setCollapseDesign] = useState('');
   const [collapseFill, setCollapseFill] = useState('hidden');
   const [collapseShare, setCollapseShare] = useState('hidden');
+
+  // Variable de las paletas (radio)
+  const [paletteColor, setPaletteColor] = useState('');
 
   //variable componente imagen
   const [image, setImage] = useState('');
@@ -50,16 +54,19 @@ function App() {
         ...data,
         palette: parseInt(ev.target.value),
       });
+      setPaletteColor('defaultpalette');
     } else if (whichRadio === 'palette-2') {
       setData({
         ...data,
         palette: parseInt(ev.target.value),
       });
+      setPaletteColor('redpalette');
     } else if (whichRadio === 'palette-3') {
       setData({
         ...data,
         palette: parseInt(ev.target.value),
       });
+      setPaletteColor('yellowpalette');
     }
   };
 
@@ -139,7 +146,16 @@ function App() {
       <div className='page-wrapper'>
         <Header />
         <main className='wholeMain'>
-          <Preview data={data} />
+          <Preview
+            data={data}
+            paletteColor={paletteColor}
+            name={data.name}
+            job={data.job}
+            phone={data.phone}
+            email={data.email}
+            linkedin={data.linkedin}
+            github={data.github}
+          />
 
           <Form
             handleImage={handleImage}
