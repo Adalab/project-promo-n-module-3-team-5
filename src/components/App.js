@@ -1,5 +1,6 @@
 //Ficheros componentes
 import Header from "./Header";
+import Design from "./Design";
 import Preview from "./Preview";
 import Share from "./Share";
 import Footer from "./Footer";
@@ -11,9 +12,11 @@ import "../styles/core/Reset.scss";
 // Migración imagenes
 import logoAwesone from "../images/logo-awesome-profile-cards.svg";
 import imagePreview from "../images/previewImg.jpg";
+// import getPhotoUrl from "./image";
 
 // Otros
 import { useState } from "react";
+
 
 function App() {
   // Variables colapsables
@@ -35,6 +38,47 @@ function App() {
     github: "",
     photo: "",
   });
+
+  //función para previsualizar imagen usuaria:
+  const fr = new FileReader();
+  /**
+   * Recoge el archivo añadido al campo de tipo "file"
+   * y lo carga en nuestro objeto FileReader para que
+   * lo convierta a algo con lo que podamos trabajar.
+   * Añade un listener al FR para que ejecute una función
+   * al tener los datos listos
+   * @param {evento} e
+   */
+  function getImage(e) {
+    const myFile = e.currentTarget.files[0];
+    fr.addEventListener("load", writeImage);
+    fr.readAsDataURL(myFile);
+  }
+
+  /**
+   * Una vez tenemos los datos listos en el FR podemos
+   * trabajar con ellos ;)
+   */
+  function writeImage() {
+    /* En la propiedad `result` de nuestro FR se almacena
+     * el resultado. Ese resultado de procesar el fichero que hemos cargado
+     * podemos pasarlo como background a la imagen de perfil y a la vista previa
+     * de nuestro componente.
+     */
+
+    //
+    data.photo = fr.result;
+    setData({ ...data });
+  }
+
+  // function getPhotoUrl(data, placeholder) {
+  //   if (placeholder) {
+  //     return data.photo === "" ? imagePreview : data.photo;
+  //   } else {
+  //     return data.photo;
+  //   }
+  // }
+
 
   // Funcion manejadora del formulario
 
@@ -86,6 +130,8 @@ function App() {
     }
   };
 
+
+
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
   let nameToDisplay = showToDisplay(data.name, "Nombre Apellidos");
   let jobToDisplay = showToDisplay(data.job, "Front-end Developer");
@@ -130,14 +176,18 @@ function App() {
     }
   };
 
-  const handleForm = () => {};
+  const updatePhoto = value => {
+    setData({ ...data, 
+      photo: value });
+  };
 
   return (
     <div className="root">
       <div className="page-wrapper">
         <Header />
         <main className="wholeMain">
-          <Preview
+
+        <Preview
             paletteColor={paletteColor}
             name={data.name}
             job={data.job}
@@ -145,86 +195,17 @@ function App() {
             email={data.email}
             linkedin={data.linkedin}
             github={data.github}
+            photo={updatePhoto}
           />
 
           <form onSubmit={handleForm} className="form">
-            <div>
-              <div
-                className="collapsable  js_collapsable_design"
-                onClick={handleCollapsableDesign}
-              >
-                <i className="far fa-object-ungroup cloningicon collapsable__iconStart"></i>
-                <h3 className="collapsable__title">Diseña</h3>
-                <i
-                  className={
-                    "fas fa-chevron-" +
-                    (collapseDesign === "hidden" ? "down" : "up") +
-                    " collapsable__iconEnd js_iconEnd"
-                  }
-                ></i>
-              </div>
-              <section
-                className="wholecollapsable-design     js_section"
-                id="desing"
-              >
-                <div className="rectangle-2"></div>
-                <fieldset className={collapseDesign + " flexboxdesign"}>
-                  <h4 className="titlecolours">colores</h4>
-                  <div>
-                    <div className="colourboxesmaster js_designevent">
-                      <label className="label__design" htmlFor="palette-1">
-                        <input
-                          id="palette-1"
-                          className="design__input js_design"
-                          type="radio"
-                          value="1"
-                          name="palette"
-                          onChange={handlePalette}
-                          // checked={palette}
-                        />
-                        <ul className="colourboxes colourone">
-                          <li className="item1-item1 li">Color A</li>
-                          <li className="item1-item2 li">Color B</li>
-                          <li className="item1-item3 li">Color C</li>
-                        </ul>
-                      </label>
-                    </div>
-                    <label className="label__design" htmlFor="palette-2">
-                      <input
-                        id="palette-2"
-                        className="design__input js_design"
-                        type="radio"
-                        value="2"
-                        name="palette"
-                        onChange={handlePalette}
-                        // checked={palette}
-                      />
-                      <ul className="colourboxes colourtwo">
-                        <li className="item2-item1 li">Color A</li>
-                        <li className="item2-item2 li">Color B</li>
-                        <li className="item2-item3 li">Color C</li>
-                      </ul>
-                    </label>
-                    <label className="label__design" htmlFor="palette-3">
-                      <input
-                        id="palette-3"
-                        className="design__input js_design"
-                        type="radio"
-                        value="3"
-                        name="palette"
-                        onChange={handlePalette}
-                        // checked={palette}
-                      />
-                      <ul className="colourboxes colourthree">
-                        <li className="item3-item2 li">Color B</li>
-                        <li className="item3-item1 li">Color A</li>
-                        <li className="item3-item3 li">Color C</li>
-                      </ul>
-                    </label>
-                  </div>
-                </fieldset>
-              </section>
-            </div>
+
+            <Design
+              collapseDesign={collapseDesign}
+              handleCollapse={handleCollapsableDesign}
+              handlePalette={handlePalette}
+            />
+
             <div>
               <div className="topBorder"></div>
               <div
@@ -285,10 +266,16 @@ function App() {
                     </label>
                     <input
                       type="file"
+                      onChange={getImage}
                       id="photo"
                       className="hidden_button js__profile-upload-btn"
                     />
-                    <div className="fill__second-checkbox js__profile-preview"></div>
+                    <div
+                      className="fill__second-checkbox js__profile-preview"
+                      style={{
+                        backgroundImage: `url(${getPhotoUrl(data, false)})`,
+                      }}
+                    ></div>
                   </div>
                 </fieldset>
                 <fieldset className="fill__third">

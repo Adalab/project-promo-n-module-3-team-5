@@ -1,6 +1,8 @@
-import imagePreview from "../images/previewImg.jpg";
-
 import "../styles/components/Preview.scss";
+// import getPhotoUrl from "./image";
+// import imagePreview from "../images/previewImg.jpg";
+
+ 
 
 function Preview(props) {
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
@@ -13,6 +15,12 @@ function Preview(props) {
     } else {
       return dataSome;
     }
+  }
+
+  function getPhotoUrl(data, placeholder) {
+    if (placeholder) {
+      return data.photo === "" ? imagePreview : data.photo;
+    } 
   }
 
   return (
@@ -28,7 +36,7 @@ function Preview(props) {
         <h3 className={`preview__description`}>{jobToDisplay}</h3>
         <div
           style={{
-            backgroundImage: `url(${imagePreview})`,
+            backgroundImage: `url(${getPhotoUrl(data.photo, true)})`,
           }}
           className="preview__image js__profile-image"
         ></div>
