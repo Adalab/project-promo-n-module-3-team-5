@@ -143,18 +143,15 @@ function App() {
       <div className="page-wrapper">
         <Header />
         <main className="wholeMain">
-          <section className="preview">
-            <button className="preview__button js_resetButton">
-              <i className="fas fa-trash-alt"></i>reset
-            </button>
-            <article className="preview__card">
-              <span className="preview__pretty js_designColor"></span>
-              <h2 className="preview__name js_previewName js_design">
-                {nameToDisplay}
-              </h2>
-              <h3 className="preview__description js_previewDescription">
-                {jobToDisplay}
-              </h3>
+        <Preview
+            paletteColor={paletteColor}
+            name={data.name}
+            job={data.job}
+            phone={data.phone}
+            email={data.email}
+            linkedin={data.linkedin}
+            github={data.github}
+          />
               <div
                 style={{
                   backgroundImage: `url(${getPhotoUrl(data, true)})`,
