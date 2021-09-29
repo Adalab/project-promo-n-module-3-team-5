@@ -1,22 +1,21 @@
 //Ficheros componentes
 import Header from "./Header";
 import Design from "./Design";
-import Preview from "./Preview";
+// import Preview from "./Preview";
 import Share from "./Share";
 import Footer from "./Footer";
 
 // Estilos
 import "../styles/App.scss";
 import "../styles/core/Reset.scss";
+import "../styles/components/Preview.scss";
 
 // Migración imagenes
 import logoAwesone from "../images/logo-awesome-profile-cards.svg";
 import imagePreview from "../images/previewImg.jpg";
-// import getPhotoUrl from "./image";
 
 // Otros
 import { useState } from "react";
-
 
 function App() {
   // Variables colapsables
@@ -71,14 +70,13 @@ function App() {
     setData({ ...data });
   }
 
-  // function getPhotoUrl(data, placeholder) {
-  //   if (placeholder) {
-  //     return data.photo === "" ? imagePreview : data.photo;
-  //   } else {
-  //     return data.photo;
-  //   }
-  // }
-
+  function getPhotoUrl(data, placeholder) {
+    if (placeholder) {
+      return data.photo === "" ? imagePreview : data.photo;
+    } else {
+      return data.photo;
+    }
+  }
 
   // Funcion manejadora del formulario
 
@@ -130,8 +128,6 @@ function App() {
     }
   };
 
-
-
   // Mostrar Nombre y Trabajo en la tarjeta predefinida
   let nameToDisplay = showToDisplay(data.name, "Nombre Apellidos");
   let jobToDisplay = showToDisplay(data.job, "Front-end Developer");
@@ -176,30 +172,67 @@ function App() {
     }
   };
 
-  const updatePhoto = value => {
-    setData({ ...data, 
-      photo: value });
-  };
+
+  const handleForm = () => {};
 
   return (
     <div className="root">
       <div className="page-wrapper">
         <Header />
         <main className="wholeMain">
-
-        <Preview
-            paletteColor={paletteColor}
-            name={data.name}
-            job={data.job}
-            phone={data.phone}
-            email={data.email}
-            linkedin={data.linkedin}
-            github={data.github}
-            photo={updatePhoto}
-          />
+          <section className="preview">
+            <button className="preview__button js_resetButton">
+              <i className="fas fa-trash-alt"></i>reset
+            </button>
+            <article className="preview__card">
+              <span className={`preview__pretty ${paletteColor}`}></span>
+              <h2 className={`preview__name ${paletteColor}`}>
+                {nameToDisplay}
+              </h2>
+              <h3 className={`preview__description`}>{jobToDisplay}</h3>
+              <div
+                style={{
+                  backgroundImage: `url(${getPhotoUrl(data, true)})`,
+                }}
+                className="preview__image js__profile-image"
+              ></div>
+              <nav className="preview__icons">
+                <a
+                  className={`preview__icons--measures  ${paletteColor}`}
+                  href={"+34" + data.phone}
+                  title="phone"
+                  name="phone"
+                >
+                  <i className="fas fa-mobile-alt"></i>
+                </a>
+                <a
+                  className={`preview__icons--measures ${paletteColor}`}
+                  href={`mailto:${data.email}`}
+                  title="message"
+                >
+                  <i className="far fa-envelope"></i>
+                </a>
+                <a
+                  className={`preview__icons--measures ${paletteColor}`}
+                  href={`https://linkedin.com/in/${data.linkedin}`}
+                  target="_blank"
+                  title="linkedin"
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  className={`preview__icons--measures  ${paletteColor}`}
+                  href={`https://github.com/${data.github}`}
+                  target="_blank"
+                  title="github"
+                >
+                  <i className="fab fa-github-alt"></i>
+                </a>
+              </nav>
+            </article>
+          </section>
 
           <form onSubmit={handleForm} className="form">
-
             <Design
               collapseDesign={collapseDesign}
               handleCollapse={handleCollapsableDesign}
