@@ -15,7 +15,6 @@ import imagePreview from "../images/previewImg.jpg";
 // Otros
 import { useState } from "react";
 
-
 function App() {
   // Variables colapsables
   const [collapseDesign, setCollapseDesign] = useState("");
