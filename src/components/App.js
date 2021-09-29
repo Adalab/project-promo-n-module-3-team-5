@@ -15,7 +15,8 @@ import logoAwesone from "../images/logo-awesome-profile-cards.svg";
 import imagePreview from "../images/previewImg.jpg";
 
 // Otros
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import callToApi from "../services/api";
 
 function App() {
   // Variables colapsables
@@ -38,6 +39,71 @@ function App() {
     photo: "",
   });
 
+  // * Fetch
+  // Variables del Fetch
+  // Esta variable es para cambiar el href y el texto en el apartado de compartir
+  const [urlShare, setUrlShare] = useState("");
+  const [btnShare, setBtnShare] = useState(false);
+  const [successCard, setSuccessCard] = useState("hidden");
+  const [cardCreated, setCardCreated] = useState("");
+  const [linkTwitter, setLinkTwitter] = useState("");
+
+  const handleForm = (ev) => {
+    ev.preventDefault();
+    // Le pongo un valor true para cuando le de click el
+    // useEffect escuche que se puede ejecutar
+    setBtnShare(true)
+    console.log("Enviando datos al servidor...");
+  };
+
+  useEffect(() => {
+    callToApi(data).then((response) => {
+      setUrlShare(response.cardURL);
+
+      if (response.success) {
+        // Estas variable es para remover/añadir la clase hidden
+        setSuccessCard("");
+      } else {
+        setSuccessCard("");
+        setCardCreated("hidden");
+        setLinkTwitter("hidden");
+
+        if (data.name === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu nombre 👆");
+        } else if (data.job === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu profesión 👆");
+        } else if (data.photo === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu foto 👆");
+        } else if (data.email === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu email 👆");
+        } else if (!validateEmail(data.email)) {
+          setUrlShare("🤷‍♀️ Debes rellenar correctamente tu email, falta un @ o algo 😉 👆");
+        } else if (data.phone === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu móvil 👆");
+        } else if (!validatePhone(data.phone)) {
+          setUrlShare("🤷‍♀️ Debes rellenar correctamente tu movil, te faltan datos 😉 👆");
+        } else if (data.linkedin === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu linkedin 👆");
+        } else if (data.github === "") {
+          setUrlShare("🤷‍♀️ Debes rellenar tu github 👆");
+        }
+      }
+    });
+  }, [setBtnShare]); //! ¿Que dato debe cojer para escuchar el evento que le di click al boton para que vaya por el api?
+
+  // Validar daos del formulario
+  function validateEmail(email) {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+  
+  function validatePhone(phone) {
+    const ph = /^([9,8,7,6]{1})+([0-9]{8})$/;
+    return ph.test(phone);
+  }
+
+  // * Añadir imagen
   //función para previsualizar imagen usuaria:
   const fr = new FileReader();
   /**
@@ -171,9 +237,6 @@ function App() {
       console.log(collapseDesign);
     }
   };
-
-
-  const handleForm = () => {};
 
   return (
     <div className="root">
@@ -396,7 +459,7 @@ function App() {
                 ></i>
               </div>
             </div>
-            <Share />
+            <Share urlShare={urlShare} successCard={successCard} cardCreated={cardCreated} linkTwitter={linkTwitter}/>
           </form>
         </main>
       </div>

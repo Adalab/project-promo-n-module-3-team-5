@@ -1,6 +1,6 @@
 import '../styles/components/Share.scss';
 
-function Share() {
+function Share(props) {
   const collapseShare = () => {};
 
   return (
@@ -12,17 +12,17 @@ function Share() {
           </button>
         </div>
         <div className='share__topBorder'> </div>
-        <div className='share__collapsable js_createdCard'>
-          <h3 className='share__collapsable__title js_notCreate'>
+        <div className={`share__collapsable ${props.successCard}`}>
+          <h3 className={`share__collapsable__title ${props.cardCreated}`}>
             La tarjeta ha sido creada
           </h3>
-          <p className='card__http js_urlCard'>
-            https://awesome-profile-card.com?id=A456DF0001
+          <p className='card__http'>
+            {props.urlShare}
           </p>
-          <button className='share__collapsable__button js_twiterBtn'>
+          <button className={`share__collapsable__button ${props.linkTwitter}`} >
             <a
               className='share__collapsable__button--link'
-              href=''
+              href={props.urlShare}
               target='_blank'
             >
               <i className='icon3 fab fa-twitter'></i>&nbsp;Compartir en twitter
