@@ -15,12 +15,7 @@ import logoAwesone from '../images/logo-awesome-profile-cards.svg';
 import imagePreview from '../images/previewImg.jpg';
 
 // Otros
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
-=======
-import { useEffect, useState } from 'react';
-import callToApi from '../services/api';
->>>>>>> 7ee9da9d06428b8a3c60a5b713501b64d01edf91
 
 function App() {
   // Variables colapsables
