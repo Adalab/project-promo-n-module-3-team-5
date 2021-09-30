@@ -1,10 +1,8 @@
 import '../styles/components/Share.scss';
 
 function Share(props) {
-  const collapseShare = () => {};
-
   return (
-    <section className={collapseShare} id='share'>
+    <section className={props.collapseShare} id='share'>
       <fieldset className='share'>
         <div className='share__second'>
           <button className='share__button js_shareButton'>
@@ -16,10 +14,8 @@ function Share(props) {
           <h3 className={`share__collapsable__title ${props.cardCreated}`}>
             La tarjeta ha sido creada
           </h3>
-          <p className='card__http'>
-            {props.urlShare}
-          </p>
-          <button className={`share__collapsable__button ${props.linkTwitter}`} >
+          <p className='card__http'>{props.urlShare}</p>
+          <button className={`share__collapsable__button ${props.linkTwitter}`}>
             <a
               className='share__collapsable__button--link'
               href={props.urlShare}
