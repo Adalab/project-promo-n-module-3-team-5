@@ -11,11 +11,11 @@ import '../styles/core/Reset.scss';
 import '../styles/components/Preview.scss';
 
 // Migración imagenes
-import logoAwesone from '../images/logo-awesome-profile-cards.svg';
+// import logoAwesone from '../images/logo-awesome-profile-cards.svg';
 import imagePreview from '../images/previewImg.jpg';
 
 // Otros
-import { useEffect, useState } from "react";
+import {useState } from 'react';
 
 function App() {
   // Variables colapsables
@@ -40,8 +40,6 @@ function App() {
 
   const handleForm = (ev) => {
     ev.preventDefault();
-
-    console.log("Enviando datos al servidor...");
   };
 
 
@@ -149,7 +147,7 @@ function App() {
   }
 
   // Escuchadores de apertura y cierre de secciones
-  const handleCollapsableDesign = (ev) => {
+  const handleCollapsableDesign = () => {
     if (collapseDesign === 'hidden') {
       setCollapseDesign('');
       setCollapseFill('hidden');
@@ -159,7 +157,7 @@ function App() {
       console.log(collapseDesign);
     }
   };
-  const handleCollapsableFill = (ev) => {
+  const handleCollapsableFill = () => {
     if (collapseFill === 'hidden') {
       setCollapseFill('');
       setCollapseDesign('hidden');
@@ -169,7 +167,7 @@ function App() {
       console.log(collapseDesign);
     }
   };
-  const handleCollapsableShare = (ev) => {
+  const handleCollapsableShare = () => {
     if (collapseShare === 'hidden') {
       setCollapseShare('');
       setCollapseDesign('hidden');

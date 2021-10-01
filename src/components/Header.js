@@ -1,7 +1,7 @@
 // Migración imagenes
-import logoAwesone from "../images/logo-awesome-profile-cards.svg";
+import logoAwesone from '../images/logo-awesome-profile-cards.svg';
 // Estilos
-import '../styles/components/Header.scss'
+import '../styles/components/Header.scss';
 
 function Header() {
   return (
