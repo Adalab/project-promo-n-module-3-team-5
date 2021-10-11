@@ -12,15 +12,23 @@ server.use(cors());
 server.use(express.json());
 
 // Arrancamos el servidor en el puerto 3000
-const serverPort = 3000;
+const serverPort = 4000;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
 // Escribimos los endpoints que queramos
-server.get("/users", (req, res) => {
-  const response = {
-    users: [{ name: "Daniela" }, { name: "Ana" }],
+server.get("/card", (req, res) => {
+  const data = {
+    palette: 0,
+    name: "",
+    job: "",
+    phone: "",
+    email: "",
+    linkedin: "",
+    github: "",
+    photo: "",
   };
-  res.json(response);
+  res.json(data);
+
 });
