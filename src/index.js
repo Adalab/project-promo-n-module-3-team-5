@@ -1,8 +1,8 @@
 // Fichero src/index.js
 
 // Importamos los dos módulos de NPM necesarios para trabajar
-const express = require("express");
-const cors = require("cors");
+const express = require('express');
+const cors = require('cors');
 
 // Creamos el servidor
 const server = express();
@@ -18,17 +18,16 @@ server.listen(serverPort, () => {
 });
 
 // Escribimos los endpoints que queramos
-server.get("/card", (req, res) => {
+server.post('/card', (req, res) => {
   const data = {
     palette: 0,
-    name: "",
-    job: "",
-    phone: "",
-    email: "",
-    linkedin: "",
-    github: "",
-    photo: "",
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+    photo: '',
   };
   res.json(data);
-
 });
