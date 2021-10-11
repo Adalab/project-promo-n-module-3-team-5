@@ -20,7 +20,7 @@ server.listen(serverPort, () => {
 // Escribimos los endpoints que queramos
 server.get("/users", (req, res) => {
   const response = {
-    users: [{ name: "Daniela" }, { name: "María" }],
+    users: [{ name: "Daniela" }, { name: "Ana" }],
   };
   res.json(response);
 });
