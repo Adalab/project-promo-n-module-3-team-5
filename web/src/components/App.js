@@ -202,239 +202,242 @@ function App() {
           <Landing />
         </Route>
 
-        <div className='page-wrapper'>
-          <Header />
-          <main className='wholeMain'>
-            <section className='preview'>
-              <button
-                className='preview__button js_resetButton'
-                onClick={handleReset}
-              >
-                <i className='fas fa-trash-alt'></i>reset
-              </button>
-              <article className='preview__card'>
-                <span className={`preview__pretty ${paletteColor}`}></span>
-                <h2 className={`preview__name ${paletteColor}`}>
-                  {nameToDisplay}
-                </h2>
-                <h3 className={`preview__description`}>{jobToDisplay}</h3>
-                <div
-                  style={{
-                    backgroundImage: `url(${getPhotoUrl(data, true)})`,
-                  }}
-                  className='preview__image js__profile-image'
-                ></div>
-                <nav className='preview__icons'>
-                  <a
-                    className={`preview__icons--measures  ${paletteColor}`}
-                    href={'+34' + data.phone}
-                    title='phone'
-                    name='phone'
-                  >
-                    <i className='fas fa-mobile-alt'></i>
-                  </a>
-                  <a
-                    className={`preview__icons--measures ${paletteColor}`}
-                    href={`mailto:${data.email}`}
-                    title='message'
-                  >
-                    <i className='far fa-envelope'></i>
-                  </a>
-                  <a
-                    className={`preview__icons--measures ${paletteColor}`}
-                    href={`https://linkedin.com/in/${data.linkedin}`}
-                    target='_blank'
-                    title='linkedin'
-                  >
-                    <i className='fab fa-linkedin-in'></i>
-                  </a>
-                  <a
-                    className={`preview__icons--measures  ${paletteColor}`}
-                    href={`https://github.com/${data.github}`}
-                    target='_blank'
-                    title='github'
-                  >
-                    <i className='fab fa-github-alt'></i>
-                  </a>
-                </nav>
-              </article>
-            </section>
-
-            <form onSubmit={handleForm} className='form'>
-              <Design
-                collapseDesign={collapseDesign}
-                handleCollapse={handleCollapsableDesign}
-                handlePalette={handlePalette}
-                data={data}
-              />
-
-              <div>
-                <div className='topBorder'></div>
-                <div
-                  className='collapsable js_collapsable_fill '
-                  onClick={handleCollapsableFill}
+        <Route path='/card'>
+          <div className='page-wrapper'>
+            <Header />
+            <main className='wholeMain'>
+              <section className='preview'>
+                <button
+                  className='preview__button js_resetButton'
+                  onClick={handleReset}
                 >
-                  <i className='far fa-keyboard collapsable__iconStart'></i>
-                  <h3 className='collapsable__title'>Rellena</h3>
-                  <i
-                    className={
-                      'fas fa-chevron-' +
-                      (collapseFill === 'hidden' ? 'down' : 'up') +
-                      ' collapsable__iconEnd js_iconEnd'
-                    }
-                  ></i>
+                  <i className='fas fa-trash-alt'></i>reset
+                </button>
+                <article className='preview__card'>
+                  <span className={`preview__pretty ${paletteColor}`}></span>
+                  <h2 className={`preview__name ${paletteColor}`}>
+                    {nameToDisplay}
+                  </h2>
+                  <h3 className={`preview__description`}>{jobToDisplay}</h3>
+                  <div
+                    style={{
+                      backgroundImage: `url(${getPhotoUrl(data, true)})`,
+                    }}
+                    className='preview__image js__profile-image'
+                  ></div>
+                  <nav className='preview__icons'>
+                    <a
+                      className={`preview__icons--measures  ${paletteColor}`}
+                      href={'+34' + data.phone}
+                      title='phone'
+                      name='phone'
+                    >
+                      <i className='fas fa-mobile-alt'></i>
+                    </a>
+                    <a
+                      className={`preview__icons--measures ${paletteColor}`}
+                      href={`mailto:${data.email}`}
+                      title='message'
+                    >
+                      <i className='far fa-envelope'></i>
+                    </a>
+                    <a
+                      className={`preview__icons--measures ${paletteColor}`}
+                      href={`https://linkedin.com/in/${data.linkedin}`}
+                      target='_blank'
+                      title='linkedin'
+                    >
+                      <i className='fab fa-linkedin-in'></i>
+                    </a>
+                    <a
+                      className={`preview__icons--measures  ${paletteColor}`}
+                      href={`https://github.com/${data.github}`}
+                      target='_blank'
+                      title='github'
+                    >
+                      <i className='fab fa-github-alt'></i>
+                    </a>
+                  </nav>
+                </article>
+              </section>
+              <form onSubmit={handleForm} className='form'>
+                <Design
+                  collapseDesign={collapseDesign}
+                  handleCollapse={handleCollapsableDesign}
+                  handlePalette={handlePalette}
+                  data={data}
+                />
+                <div>
+                  <div className='topBorder'></div>
+                  <div
+                    className='collapsable js_collapsable_fill '
+                    onClick={handleCollapsableFill}
+                  >
+                    <i className='far fa-keyboard collapsable__iconStart'></i>
+                    <h3 className='collapsable__title'>Rellena</h3>
+                    <i
+                      className={
+                        'fas fa-chevron-' +
+                        (collapseFill === 'hidden' ? 'down' : 'up') +
+                        ' collapsable__iconEnd js_iconEnd'
+                      }
+                    ></i>
+                  </div>
+                  <section className={collapseFill + ' fill'} id='fill'>
+                    <fieldset className='fill__first'>
+                      <div className='fill__first--name'>
+                        <label
+                          htmlFor='fullName'
+                          className='fill__first--name-lab'
+                        >
+                          Nombre completo *
+                        </label>
+                        <input
+                          value={data.name}
+                          className='fill__first--name-inp js_allInputs'
+                          placeholder='Ej: Sally Jill'
+                          id='name'
+                          type='text'
+                          name='name'
+                          onChange={handleInput}
+                        />
+                      </div>
+                      <div className='fill__first--position'>
+                        <label
+                          htmlFor='position'
+                          className='fill__first--position-lab'
+                        >
+                          Puesto *
+                        </label>
+                        <input
+                          value={data.job}
+                          className='fill__first--position-inp js_allInputs'
+                          placeholder='Ej: Front-end unicorn'
+                          id='job'
+                          type='text'
+                          name='job'
+                          onChange={handleInput}
+                        />
+                      </div>
+                    </fieldset>
+                    <fieldset className='fill__second'>
+                      <label className='fill__second-label'>
+                        Imagen de perfil *
+                      </label>
+                      <div className='fill__second-buttoncheck'>
+                        <label className='fill__second-button' htmlFor='photo'>
+                          Añadir imagen
+                        </label>
+                        <input
+                          type='file'
+                          onChange={getImage}
+                          id='photo'
+                          className='hidden_button js__profile-upload-btn'
+                        />
+                        <div
+                          className='fill__second-checkbox js__profile-preview'
+                          style={{
+                            backgroundImage: `url(${getPhotoUrl(data, false)})`,
+                          }}
+                        ></div>
+                      </div>
+                    </fieldset>
+                    <fieldset className='fill__third'>
+                      <div className='fill__third--mail'>
+                        <label
+                          htmlFor='email'
+                          className='fill__third--mail-lab'
+                        >
+                          Email *
+                        </label>
+                        <input
+                          className='fill__third--mail-inp'
+                          placeholder='Ej: sally-hill@gmail.com'
+                          id='email'
+                          type='email'
+                          name='email'
+                          value={data.email}
+                          onChange={handleInput}
+                        />
+                      </div>
+                      <div className='fill__third--tel'>
+                        <label
+                          htmlFor='telephone'
+                          className='fill__third--tel-lab'
+                        >
+                          Teléfono
+                        </label>
+                        <input
+                          className='fill__third--tel-inp js_allInputs'
+                          placeholder='Ej: 555-55-55-55'
+                          id='phone'
+                          type='tel'
+                          name='phone'
+                          value={data.phone}
+                          onChange={handleInput}
+                        />
+                      </div>
+                      <div className='fill__third--linked'>
+                        <label
+                          htmlFor='linkedinName'
+                          className='fill__third--linked-lab'
+                        >
+                          Linkedin *
+                        </label>
+                        <input
+                          className='fill__third--linked-inp js_allInputs'
+                          placeholder='Ej: linkedin.com/in/sally.hill'
+                          id='linkedin'
+                          type='text'
+                          name='linkedin'
+                          value={data.linkedin}
+                          onChange={handleInput}
+                        />
+                      </div>
+                      {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
+                      <div className='fill__third--git'>
+                        <label
+                          htmlFor='gitHubName'
+                          className='fill__third--git-lab'
+                        >
+                          Github *
+                        </label>
+                        <input
+                          className='fill__third--git-inp js_allInputs'
+                          placeholder='Ej: @sally-hill'
+                          id='github'
+                          type='text'
+                          name='github'
+                          value={data.github}
+                          onChange={handleInput}
+                        />
+                        {/*<!--no hay input type =sumbit value= enviar info porque la información se va mostrando en el momento en la tarjeta y no se manda a ningún lugar-->*/}
+                      </div>
+                    </fieldset>
+                  </section>
                 </div>
-                <section className={collapseFill + ' fill'} id='fill'>
-                  <fieldset className='fill__first'>
-                    <div className='fill__first--name'>
-                      <label
-                        htmlFor='fullName'
-                        className='fill__first--name-lab'
-                      >
-                        Nombre completo *
-                      </label>
-                      <input
-                        value={data.name}
-                        className='fill__first--name-inp js_allInputs'
-                        placeholder='Ej: Sally Jill'
-                        id='name'
-                        type='text'
-                        name='name'
-                        onChange={handleInput}
-                      />
-                    </div>
-                    <div className='fill__first--position'>
-                      <label
-                        htmlFor='position'
-                        className='fill__first--position-lab'
-                      >
-                        Puesto *
-                      </label>
-                      <input
-                        value={data.job}
-                        className='fill__first--position-inp js_allInputs'
-                        placeholder='Ej: Front-end unicorn'
-                        id='job'
-                        type='text'
-                        name='job'
-                        onChange={handleInput}
-                      />
-                    </div>
-                  </fieldset>
-                  <fieldset className='fill__second'>
-                    <label className='fill__second-label'>
-                      Imagen de perfil *
-                    </label>
-                    <div className='fill__second-buttoncheck'>
-                      <label className='fill__second-button' htmlFor='photo'>
-                        Añadir imagen
-                      </label>
-                      <input
-                        type='file'
-                        onChange={getImage}
-                        id='photo'
-                        className='hidden_button js__profile-upload-btn'
-                      />
-                      <div
-                        className='fill__second-checkbox js__profile-preview'
-                        style={{
-                          backgroundImage: `url(${getPhotoUrl(data, false)})`,
-                        }}
-                      ></div>
-                    </div>
-                  </fieldset>
-                  <fieldset className='fill__third'>
-                    <div className='fill__third--mail'>
-                      <label htmlFor='email' className='fill__third--mail-lab'>
-                        Email *
-                      </label>
-                      <input
-                        className='fill__third--mail-inp'
-                        placeholder='Ej: sally-hill@gmail.com'
-                        id='email'
-                        type='email'
-                        name='email'
-                        value={data.email}
-                        onChange={handleInput}
-                      />
-                    </div>
-                    <div className='fill__third--tel'>
-                      <label
-                        htmlFor='telephone'
-                        className='fill__third--tel-lab'
-                      >
-                        Teléfono
-                      </label>
-                      <input
-                        className='fill__third--tel-inp js_allInputs'
-                        placeholder='Ej: 555-55-55-55'
-                        id='phone'
-                        type='tel'
-                        name='phone'
-                        value={data.phone}
-                        onChange={handleInput}
-                      />
-                    </div>
-                    <div className='fill__third--linked'>
-                      <label
-                        htmlFor='linkedinName'
-                        className='fill__third--linked-lab'
-                      >
-                        Linkedin *
-                      </label>
-                      <input
-                        className='fill__third--linked-inp js_allInputs'
-                        placeholder='Ej: linkedin.com/in/sally.hill'
-                        id='linkedin'
-                        type='text'
-                        name='linkedin'
-                        value={data.linkedin}
-                        onChange={handleInput}
-                      />
-                    </div>
-                    {/*<!-- se consideraría type text para un texto que empieza con arroba¿?-->*/}
-                    <div className='fill__third--git'>
-                      <label
-                        htmlFor='gitHubName'
-                        className='fill__third--git-lab'
-                      >
-                        Github *
-                      </label>
-                      <input
-                        className='fill__third--git-inp js_allInputs'
-                        placeholder='Ej: @sally-hill'
-                        id='github'
-                        type='text'
-                        name='github'
-                        value={data.github}
-                        onChange={handleInput}
-                      />
-                      {/*<!--no hay input type =sumbit value= enviar info porque la información se va mostrando en el momento en la tarjeta y no se manda a ningún lugar-->*/}
-                    </div>
-                  </fieldset>
-                </section>
-              </div>
-              <div>
-                <div className='topBorder'></div>
-                <div
-                  className='collapsable js_collapsable'
-                  onClick={handleCollapsableShare}
-                >
-                  <i className='fas fa-share-alt collapsable__iconStart'></i>
-                  <h3 className='collapsable__title'>Comparte</h3>
-                  <i
-                    className={
-                      'fas fa-chevron-' +
-                      (collapseShare === 'hidden' ? 'down' : 'up') +
-                      ' collapsable__iconEnd js_iconEnd'
-                    }
-                  ></i>
+                <div>
+                  <div className='topBorder'></div>
+                  <div
+                    className='collapsable js_collapsable'
+                    onClick={handleCollapsableShare}
+                  >
+                    <i className='fas fa-share-alt collapsable__iconStart'></i>
+                    <h3 className='collapsable__title'>Comparte</h3>
+                    <i
+                      className={
+                        'fas fa-chevron-' +
+                        (collapseShare === 'hidden' ? 'down' : 'up') +
+                        ' collapsable__iconEnd js_iconEnd'
+                      }
+                    ></i>
+                  </div>
                 </div>
-              </div>
-              <Share data={data} collapseShare={collapseShare} />
-            </form>
-          </main>
-        </div>
+                <Share data={data} collapseShare={collapseShare} />
+              </form>
+            </main>
+          </div>
+        </Route>
       </Switch>
       <Footer />
     </div>

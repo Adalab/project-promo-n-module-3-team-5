@@ -37,16 +37,16 @@ const Landing = (props) => {
           </ul>
         </section>
         <section className='main__section3'>
-          <a
+          <Link
+            to={`./card`}
             className='main__section3--button'
             href='./cards.html'
             title='Comenzar a crear tarjeta'
           >
             Comenzar
-          </a>
+          </Link>
         </section>
       </main>
-      ç
     </>
   );
 };
