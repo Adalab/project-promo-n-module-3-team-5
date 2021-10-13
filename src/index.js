@@ -9,25 +9,48 @@ const server = express();
 
 // Configuramos el servidor
 server.use(cors());
-server.use(express.json());
+server.use(express.json({ limit: '50mb' }));
+
+//static server
+const serverStaticPath = './public';
+server.use(express.static(serverStaticPath));
 
 // Arrancamos el servidor en el puerto 3000
-const serverPort = 4000;
+const serverPort = 4001;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
 // Escribimos los endpoints que queramos
+
 server.post('/card', (req, res) => {
-  const data = {
-    palette: 0,
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
-  };
-  res.json(data);
+  let response = {};
+  console.log(req.body.name);
+  if (req.body.name === '' || req.body.name === undefined) {
+    const error = 'debe indicar su nombre';
+    response = { success: false, error: error };
+  } else if (req.body.job === '') {
+    const error = 'indica tu trabajo';
+    response = { success: false, error: error };
+  } else if (req.body.photo === '') {
+    const error = 'pon tu foto';
+    response = { success: false, error: error };
+  } else if (req.body.email === '') {
+    const error = 'indica tu email';
+    response = { success: false, error: error };
+  } else if (req.body.phone === '') {
+    const error = 'indica tu teléfono';
+    response = { success: false, error: error };
+  } else if (req.body.linkedin === '') {
+    const error = 'indica tu linkedin';
+    response = { success: false, error: error };
+  } else if (req.body.github === '') {
+    const error = 'indica tu github';
+    response = { success: false, error: error };
+  } else {
+    const cardURL = 'este es el enlace';
+    response = { success: true, cardURL: cardURL };
+  }
+
+  res.json(response);
 });

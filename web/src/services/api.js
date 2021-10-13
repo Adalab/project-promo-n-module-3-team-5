@@ -1,5 +1,6 @@
 const callToApi = (data) => {
-  return fetch('http://localhost:4000/card', {
+  console.log(data);
+  return fetch('http://localhost:4001/card', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
@@ -7,9 +8,10 @@ const callToApi = (data) => {
     },
   })
     .then((response) => response.json())
-    .then((response) => {
-      return response;
-    });
+    .then((result) => {
+      return result;
+    })
+    .catch((error) => console.log('Error:', error));
 };
 
 export default callToApi;
