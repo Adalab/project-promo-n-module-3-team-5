@@ -1,5 +1,3 @@
-// Fichero src/index.js
-
 // Importamos los dos módulos de NPM necesarios para trabajar
 const express = require('express');
 const cors = require('cors');
@@ -11,18 +9,25 @@ const server = express();
 server.use(cors());
 server.use(express.json({ limit: '50mb' }));
 
-//static server
-const serverStaticPath = './public';
-server.use(express.static(serverStaticPath));
+// set template engine middlewares
+server.set('view engine', 'ejs');
 
-// Arrancamos el servidor en el puerto 3000
+// Arrancamos el servidor en el puerto 4001
 const serverPort = 4001;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
-// Escribimos los endpoints que queramos
+//static server
+const serverStaticPath = './public';
+server.use(express.static(serverStaticPath));
 
+// tamplate engines
+server.get('/interactive_card', (req, res) => {
+  res.render('interactive_card');
+})
+
+// Escribimos los endpoints que queramos
 server.post('/card', (req, res) => {
   let response = {};
   console.log(req.body.name);
