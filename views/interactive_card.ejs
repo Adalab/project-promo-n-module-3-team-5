@@ -7,6 +7,55 @@
   <title>Interactive Card</title>
 </head>
 <body>
-  mi primera plantilla
+  <main>
+    <section className='preview'>
+      <article className='preview__card'>
+        <span className={`preview__pretty ${paletteColor}`}></span>
+        <h2 className={`preview__name ${paletteColor}`}>
+          <%=name%>
+        </h2>
+        <h3 className={`preview__description`}><%=job%></h3>
+        <div
+          style={{
+            backgroundImage: `url(${getPhotoUrl(data, true)})`,
+          }}
+          className='preview__image js__profile-image'
+        ></div>
+        <nav className='preview__icons'>
+          <a
+            className={`preview__icons--measures  ${paletteColor}`}
+            href={'+34' + <%=phone%> }
+            title='phone'
+            name='phone'
+          >
+            <i className='fas fa-mobile-alt'></i>
+          </a>
+          <a
+            className={`preview__icons--measures ${paletteColor}`}
+            href={mailto:<%=email%>}
+            title='message'
+          >
+            <i className='far fa-envelope'></i>
+          </a>
+          <a
+            className={`preview__icons--measures ${paletteColor}`}
+            href={https://linkedin.com/in/<%=linkedin%>}
+            target='_blank'
+            title='linkedin'
+          >
+            <i className='fab fa-linkedin-in'></i>
+          </a>
+          <a
+            className={`preview__icons--measures  ${paletteColor}`}
+            href={https://github.com/<%=github%>}
+            target='_blank'
+            title='github'
+          >
+            <i className='fab fa-github-alt'></i>
+          </a>
+        </nav>
+      </article>
+    </section>
+  </main>
 </body>
 </html>

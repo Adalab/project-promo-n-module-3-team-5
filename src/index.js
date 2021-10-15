@@ -11,6 +11,7 @@ server.use(express.json({ limit: '50mb' }));
 
 // set template engine middlewares
 server.set('view engine', 'ejs');
+const Database = require('better-sqlite3');
 
 // Arrancamos el servidor en el puerto 4001
 const serverPort = 4001;
@@ -18,13 +19,22 @@ server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
 
+// init and config data base
+const db = new Database('./src/database.db', {
+  // this line log in console all data base queries
+  verbose: console.log,
+});
 //static server
 const serverStaticPath = './public';
 server.use(express.static(serverStaticPath));
 
-// tamplate engines
-server.get('/interactive_card', (req, res) => {
-  res.render('interactive_card');
+// template engines
+server.get('/interactive_card/:id', (req, res) => {
+  console.log("Paso por aqui");
+  const query = db.prepare(`SELECT * FROM card_interactive WHERE id =?`)
+  const data = query.get(req.params.id);
+
+  res.render('interactive_card', data);
 })
 
 // Escribimos los endpoints que queramos

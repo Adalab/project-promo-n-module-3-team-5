@@ -4,7 +4,7 @@ import Design from './Design';
 // import Preview from "./Preview";
 import Share from './Share';
 import Footer from './Footer';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 
 // Estilos
 import '../styles/App.scss';
@@ -17,7 +17,6 @@ import imagePreview from '../images/previewImg.jpg';
 
 // Otros
 import { useState } from 'react';
-import { Switch } from 'react-router';
 import Landing from './Landing';
 
 function App() {
