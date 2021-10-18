@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Card</title>
-</head>
-<body>
-  <main>
-    <section className='preview'>
-      <article className='preview__card'>
-        <span className={`preview__pretty ${paletteColor}`}></span>
-        <h2 className={`preview__name ${paletteColor}`}>
-          <%=name%>
-        </h2>
-        <h3 className={`preview__description`}><%=job%></h3>
-        <div
-          style={{
-            backgroundImage: `url(${getPhotoUrl(data, true)})`,
-          }}
-          className='preview__image js__profile-image'
-        ></div>
-        <nav className='preview__icons'>
-          <a
-            className={`preview__icons--measures  ${paletteColor}`}
-            href={'+34' + <%=phone%> }
-            title='phone'
-            name='phone'
-          >
-            <i className='fas fa-mobile-alt'></i>
-          </a>
-          <a
-            className={`preview__icons--measures ${paletteColor}`}
-            href={mailto:<%=email%>}
-            title='message'
-          >
-            <i className='far fa-envelope'></i>
-          </a>
-          <a
-            className={`preview__icons--measures ${paletteColor}`}
-            href={https://linkedin.com/in/<%=linkedin%>}
-            target='_blank'
-            title='linkedin'
-          >
-            <i className='fab fa-linkedin-in'></i>
-          </a>
-          <a
-            className={`preview__icons--measures  ${paletteColor}`}
-            href={https://github.com/<%=github%>}
-            target='_blank'
-            title='github'
-          >
-            <i className='fab fa-github-alt'></i>
-          </a>
-        </nav>
-      </article>
-    </section>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.ae4db36f.chunk.css" />
+    <script
+      src="https://kit.fontawesome.com/f2e0e49a34.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Interactive Card</title>
+  </head>
+  <body>
+    <main>
+      <section class="preview">
+        <article class="preview__card">
+          <span class="preview__pretty paletteColor"></span>
+          <h2 class="preview__name paletteColor"><%=name%></h2>
+          <h3 class="preview__description"><%=job%></h3>
+          <div
+            class="preview__image js__profile-image"
+            style="background-image: url('<%=photo%>')"
+          ></div>
+
+          <nav class="preview__icons">
+            <a
+              class="preview__icons--measures paletteColor"
+              href="'+34' + <%=phone%> "
+              title="phone"
+              name="phone"
+            >
+              <i class="fas fa-mobile-alt"></i>
+            </a>
+            <a
+              class="preview__icons--measures paletteColor"
+              href="mailto:<%=email%>"
+              title="message"
+            >
+              <i class="far fa-envelope"></i>
+            </a>
+            <a
+              class="preview__icons--measures paletteColor"
+              href="https://linkedin.com/in/<%=linkedin%>"
+              target="_blank"
+              title="linkedin"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              class="preview__icons--measures paletteColor"
+              href="https://github.com/<%=github%>"
+              target="_blank"
+              title="github"
+            >
+              <i class="fab fa-github-alt"></i>
+            </a>
+          </nav>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
