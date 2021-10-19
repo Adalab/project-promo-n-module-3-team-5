@@ -1,6 +1,6 @@
 const callToApi = (data) => {
   console.log(data);
-  return fetch('http://localhost:4001/card', {
+  return fetch('/card', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
