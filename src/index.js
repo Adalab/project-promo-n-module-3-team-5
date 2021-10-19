@@ -14,7 +14,7 @@ server.set('view engine', 'ejs');
 const Database = require('better-sqlite3');
 
 // Arrancamos el servidor en el puerto 4001
-const serverPort = process.env.PORT || 4000;
+const serverPort = process.env.PORT || 4001;
 server.listen(serverPort, () => {
   console.log(`Server listening at http://localhost:${serverPort}`);
 });
