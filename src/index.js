@@ -76,7 +76,7 @@ server.post('/card', (req, res) => {
       req.body.linkedin
     );
     response.success = true;
-    response.cardURL = `http://localhost:4001/interactive_card/${result.lastInsertRowid}`;
+    response.cardURL = `https://chafarcoderas-ejs.herokuapp.com/interactive_card/${result.lastInsertRowid}`;
     //const cardURL = 'este es el enlace';
     //response = { success: true, cardURL: cardURL };
   }
